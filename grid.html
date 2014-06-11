@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grid</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="#">
+              <img id="header-logo" src="img/anchor3_35.png" alt="Anchor" />
+            </a>
+          </div>
+          <div class="col-md-9 text-right">
+            <ul class="list-inline thomas-navbar">
+              <li><a href="#">Feed</a></li>
+              <li><a href="#">Grid</a></li>
+              <li><a href="#">Personal</a></li>
+              <li><a href="#"><img src="img/icons/icon_wrench.png" alt="Settings" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>     
+    </header>
+
+    <nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 text-center">
+            <ul class="list-inline thomas-navbar">
+              <li><a href="#">Filter</a></li>
+              <li><a href="#">Map</a></li>
+              <li><a href="#">User</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <main id="grid">
+      <div class="container">
+        <div id="itemContainer">
+          <div class="item">
+            <img src="img/photos/300/1.jpg" alt="1" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">Denmark</li><li class="month">May</li><li class="year">2008</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/2.jpg" alt="2" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">USA</li><li class="month">September</li><li class="year">2000</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/3.jpg" alt="3" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">Kongo</li><li class="month">April</li><li class="year">2020</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/1.jpg" alt="1" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">Denmark</li><li class="month">May</li><li class="year">2008</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/2.jpg" alt="2" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">USA</li><li class="month">September</li><li class="year">2000</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/3.jpg" alt="3" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">Kongo</li><li class="month">April</li><li class="year">2020</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/1.jpg" alt="1" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">Denmark</li><li class="month">May</li><li class="year">2008</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/2.jpg" alt="2" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">USA</li><li class="month">September</li><li class="year">2000</li>
+            </ul>
+          </div>
+          <div class="item">
+            <img src="img/photos/300/3.jpg" alt="3" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="dk">
+              <li class="country">Kongo</li><li class="month">April</li><li class="year">2020</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/headroom.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script  type="text/javascript" src="https://rawgithub.com/WickyNilliams/headroom.js/master/src/jQuery.headroom.js"></script>
+    <script type="text/javascript">
+      $("header").headroom({
+        "tolerance": 5,
+        "offset": 205
+      });
+
+      $('main#grid #itemContainer').isotope({
+        itemSelector: '.item',
+        layoutMode: 'masonry',
+        getSortData: {
+          country: '.country',
+          year: '.year'
+        },
+        masonry: {
+          columnWidth: 5
+        }
+
+      })
+    </script>  
+  </body>
+</html>
