@@ -1,0 +1,12 @@
+    <main id="grid" ng-controller="gridController as grid">
+      <div class="container">
+        <div id="itemContainer">
+          <div class="item" ng-repeat="photo in grid.photos" grid-load-isotope>
+            <img src="img/photos/300/{{photo.id}}.jpg" alt="{{photo.id}}" />
+            <ul class="itemDesc list-inline thomas-navbar" data-filter="home" data-country="{{photo.country}}">
+              <li class="country">{{photo.country}}</li><li class="month">{{photo.month}}</li><li class="year">{{photo.year}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>

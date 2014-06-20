@@ -4,7 +4,9 @@ body {
 	color: #35495E;
 }
 
-
+.hidden {
+	display: none;
+}
 
 
 
@@ -19,15 +21,20 @@ ul.thomas-navbar li {
 ul.thomas-navbar li+li:before {
 	content: " | ";
 	padding-right: 10px;
+	color: #BDC3C7;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 }
 
 
 
 
 
-/* HEADER */
-header {
+/* headroom */
+headroom {
 	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	padding-top: 10px;
 	background-color: #FFFFFF;
@@ -36,7 +43,7 @@ header {
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
-header div.row {
+headroom div.row {
 	line-height: 60px;
 	margin: 0 auto;
 	background-color: #ECF0F1;
@@ -44,25 +51,25 @@ header div.row {
 	text-decoration: none;
 }
 
-header ul {
+headroom ul {
 	margin-bottom: 0;
 }
 
-header li {
+headroom li {
 	padding-left: 10px;
 	padding-right: 0;
 }
 
-header li+li:before {
+headroom li+li:before {
 	content: " | ";
 	padding-right: 10px;
 }
 
-header  img {
+headroom  img {
 	max-height: 100%;
 }
 
-header.headroom {
+headroom.headroom {
 	display: block;
 	position: fixed;
 	top: 0;
@@ -70,29 +77,29 @@ header.headroom {
 	transition: transform 200ms linear;
 }
 
-header.headroom--pinned {
+headroom.headroom--pinned {
 	transform: translateY(0%);
 }
 
-header.headroom--unpinned {
+headroom.headroom--unpinned {
 	transform: translateY(-100%);
 }
 
-header a, header a:visited {
+headroom a, headroom a:visited {
 	color: #35495E;
 }
 
-header a:hover, header a:active  {
+headroom a:hover, headroom a:active  {
 	color: #24AE5F;
 }
 
-header a:hover img  {
+headroom a:hover img  {
 	opacity: 0.6;
 }
 
 /* NAV */
 nav {
-	margin-top: 100px;
+	margin-top: 130px;
 	font-size: 1.1em;
 	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
@@ -109,31 +116,25 @@ nav a:hover, nav a:active  {
 
 /* MAIN */
 main {
-	padding-top: 20px;
-	margin: 0 auto;
+	margin: 50px -20px 20px 0;
 }
-
-
 
 
 #grid .item {
 	position: relative;
 	display: inline-block;
-	margin-bottom: 20px;
-	margin-right: 20px;
+	margin:0 12px 20px;
 }
-
 #grid .item img {
 	display: block;
 	width: 300px;
-	border-radius: 20px 20px 0 0;
+	border-radius: 10px 10px 0 0;
 	cursor: pointer;
 }
 
 #grid .item .itemDesc {
 	display: block;
-	padding: 15px;
-	cursor: pointer;
+	padding: 15px 0;
 	text-align: center;
 }
 
