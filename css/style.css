@@ -120,22 +120,41 @@ main {
 }
 
 
+
+
+/* GRID */
+#grid #itemContainer {
+	margin: 0 auto;
+}
 #grid .item {
 	position: relative;
-	display: inline-block;
+	display: table;
 	margin:0 12px 20px;
-}
-#grid .item img {
-	display: block;
-	width: 300px;
-	border-radius: 10px 10px 0 0;
-	cursor: pointer;
+	/*visibility: hidden;*/
 }
 
-#grid .item .itemDesc {
-	display: block;
-	padding: 15px 0;
+#grid .item .itemRow {
+	display: table-row;
+}
+
+#grid .item .itemCell {
+	display: table-cell;
+	vertical-align: middle;
 	text-align: center;
 }
 
+#grid .item .itemImg {
+	border-radius: 10px 10px 0 0;
+	cursor: pointer;
+	background-color: #ECF0F1;
+	text-align: center;
+}
+
+#grid .item .itemImg img {
+	border-radius: 10px 10px 0 0;
+}
+
+#grid .item .itemDesc {
+	padding: 15px 0;
+}
 

@@ -1,0 +1,10 @@
+            <div class="itemRow">
+              <div class="itemCell itemImg" style="width:{{photo.img[item.isSrc].width}}px; height:{{photo.img[item.isSrc].height}}px;">
+                <img ng-click="item.setSrc('big')" ng-src="{{photo.img[item.isSrc].src}}" alt="{{photo.id}}" title="{{item.isSrc}}" />
+              </div>
+            </div>
+            <div class="itemRow">
+              <ul class="itemDesc itemCell list-inline thomas-navbar"  data-country="{{photo.country}}">
+                <li ng-click="item.setSrc('small')" class="country">{{photo.country}}</li><li class="month">{{photo.month}}</li><li class="year">{{photo.year}}</li>
+              </ul>
+            </div>

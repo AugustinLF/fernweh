@@ -31,37 +31,27 @@
 	app.directive('mainGrid', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'main_grid.html',
-			controller: function($scope) {
-				//changes the content, ex if we want to reload a bigger image
-				
-						var wCont = $('main#grid #itemContainer').innerWidth();
-						var witem = $('main#grid #itemContainer .item:first').outerWidth(true);
-						var nItems = Math.floor( wCont/witem);
-						var mCont = (wCont - witem * nItems)/2;
-						$('main#grid #itemContainer').css('marginLeft', mCont+'px');
-
-						$('main#grid #itemContainer').isotope({
-							itemSelector: '.item',
-							layoutMode: 'masonry',
-							getSortData: {
-								country: '.country',
-								year: '.year'
-							},
-							masonry: {
-								columnWidth: 5
-							}
-
-						}).isotope('on', 'layoutComplete', function(isoInstance, laidOutItems) {
-							$('main#grid #itemContainer').show('slow');
-
-						});
-
-
-			},
-			controllerAs: 'photo'
+			templateUrl: 'main_grid.html'
 		};
 	});
+
+	app.directive("mainItem", function() {
+		return {
+			restrict: 'E',
+			templateUrl: "main_item.html",
+			controller: function() {
+
+				this.isSrc = 'load';
+
+				this.setSrc = function(setSrc) {
+					this.isSrc = setSrc;
+				}
+
+			},
+			controllerAs: 'item'
+		};
+	});
+
 
 
 	// will be send via AJAX
@@ -72,18 +62,28 @@
 		month: 'May',
 		year: 2014,
 		user: 'Thomas',
-		height: 400,
-		width: 300,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
+		img: {
+			small: {
+				src: "img/photos/300/1.jpg",
+				height: 400,
+				width: 300
+			},
+			big: {
+				src: "img/photos/600/1.jpg",
+				height: 375,
+				width: 600
+			},
+			load: {
+				src: "img/anchor3_35.png",
+				height: 400,
+				width: 300
+			}
+		},
+		history: {
 			liked: 1,
 			followed: 1,
 			shared: "yes"
-		}]
+		}
 	},
 	{
 		id: 2,
@@ -91,18 +91,28 @@
 		month: 'April',
 		year: 2000,
 		user: 'John',
-		height: 400,
-		width: 300,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
+		img: {
+			small: {
+				src: "img/photos/300/2.jpg",
+				height: 400,
+				width: 300
+			},
+			big: {
+				src: "img/photos/600/2.jpg",
+				height: 375,
+				width: 600
+			},
+			load: {
+				src: "img/anchor3_35.png",
+				height: 400,
+				width: 300
+			}
+		},
+		history: {
 			liked: 1,
 			followed: 1,
 			shared: "yes"
-		}]
+		}
 	},
 	{
 		id: 3,
@@ -110,18 +120,28 @@
 		month: 'July',
 		year: 2025,
 		user: 'james',
-		height: 400,
-		width: 225,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
+		img: {
+			small: {
+				src: "img/photos/300/3.jpg",
+				height: 225,
+				width: 300
+			},
+			big: {
+				src: "img/photos/600/3.jpg",
+				height: 375,
+				width: 600
+			},
+			load: {
+				src: "img/anchor3_35.png",
+				height: 225,
+				width: 300
+			}
+		},
+		history: {
 			liked: 1,
 			followed: 1,
 			shared: "yes"
-		}]
+		}
 	},
 	{
 		id: 1,
@@ -129,18 +149,28 @@
 		month: 'May',
 		year: 2014,
 		user: 'Thomas',
-		height: 400,
-		width: 300,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
+		img: {
+			small: {
+				src: "img/photos/300/1.jpg",
+				height: 400,
+				width: 300
+			},
+			big: {
+				src: "img/photos/600/1.jpg",
+				height: 375,
+				width: 600
+			},
+			load: {
+				src: "img/anchor3_35.png",
+				height: 400,
+				width: 300
+			}
+		},
+		history: {
 			liked: 1,
 			followed: 1,
 			shared: "yes"
-		}]
+		}
 	},
 	{
 		id: 2,
@@ -148,18 +178,28 @@
 		month: 'April',
 		year: 2000,
 		user: 'John',
-		height: 400,
-		width: 300,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
+		img: {
+			small: {
+				src: "img/photos/300/2.jpg",
+				height: 400,
+				width: 300
+			},
+			big: {
+				src: "img/photos/600/2.jpg",
+				height: 375,
+				width: 600
+			},
+			load: {
+				src: "img/anchor3_35.png",
+				height: 400,
+				width: 300
+			}
+		},
+		history: {
 			liked: 1,
 			followed: 1,
 			shared: "yes"
-		}]
+		}
 	},
 	{
 		id: 3,
@@ -167,75 +207,28 @@
 		month: 'July',
 		year: 2025,
 		user: 'james',
-		height: 400,
-		width: 225,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
+		img: {
+			small: {
+				src: "img/photos/300/3.jpg",
+				height: 225,
+				width: 300
+			},
+			big: {
+				src: "img/photos/600/3.jpg",
+				height: 375,
+				width: 600
+			},
+			load: {
+				src: "img/anchor3_35.png",
+				height: 225,
+				width: 300
+			}
+		},
+		history: {
 			liked: 1,
 			followed: 1,
 			shared: "yes"
-		}]
-	},
-	{
-		id: 1,
-		country: 'Denmark',
-		month: 'May',
-		year: 2014,
-		user: 'Thomas',
-		height: 400,
-		width: 300,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
-			liked: 1,
-			followed: 1,
-			shared: "yes"
-		}]
-	},
-	{
-		id: 2,
-		country: 'Italy',
-		month: 'April',
-		year: 2000,
-		user: 'John',
-		height: 400,
-		width: 300,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
-			liked: 1,
-			followed: 1,
-			shared: "yes"
-		}]
-	},
-	{
-		id: 3,
-		country: 'Spain',
-		month: 'July',
-		year: 2025,
-		user: 'james',
-		height: 400,
-		width: 225,
-		srcs: [
-			"images/gem-02.gif",
-			"images/gem-05.gif",
-			"images/gem-09.gif"
-		],
-		history: [{
-			liked: 1,
-			followed: 1,
-			shared: "yes"
-		}]
+		}
 	}
 	];
 
