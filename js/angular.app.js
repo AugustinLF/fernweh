@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('app', []);
+	var app = angular.module('app', ['iso.directives']);
 
 	//headroom
 	app.directive('headroom', function() {
@@ -35,23 +35,17 @@
 		};
 	});
 
-	app.directive("mainItem", function() {
-		return {
-			restrict: 'E',
-			templateUrl: "main_item.html",
-			controller: function() {
+	app.controller('itemController', function() {
 
-				this.isSrc = 'load';
-
-				this.setSrc = function(setSrc) {
-					this.isSrc = setSrc;
-				}
-
-			},
-			controllerAs: 'item'
-		};
+		this.isSrc = 'load';
+		this.setSrc = function(setSrc) {
+			this.isSrc = setSrc;
+			/*$('#itemContainer').isotope('layout');*/
+		}
 	});
 
+	app.controller('navController', function() {
+	});
 
 
 	// will be send via AJAX

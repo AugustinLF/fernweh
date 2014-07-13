@@ -1,12 +1,18 @@
-    <main id="grid" ng-controller="gridController as grid">
-      <div class="container">
-        <div id="itemContainer">
-          
-          <div class="item" ng-repeat="photo in grid.photos">
-            <main-item>
-            </main-item>
-          </div>
+    <main id="grid" ng-controller="gridController as grid" class="container">
+      <div id="itemContainer" id="isotopeContainer" isotope-container ng-cloak>
 
+        <div class="item {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="itemController as item" isotope-item>
+          <div class="itemRow">
+            <div ng-click="item.setSrc('big')" class="itemCell itemImg" style="width:{{photo.img[item.isSrc].width}}px; height:{{photo.img[item.isSrc].height}}px;">
+              <img ng-click="item.setSrc('small')" ng-src="{{photo.img[item.isSrc].src}}" alt="{{photo.id}}" title="{{item.isSrc}}" />
+            </div>
+          </div>
+          <div class="itemRow">
+            <ul class="itemDesc itemCell list-inline thomas-navbar"  data-country="{{photo.country}}" opt-kind ok-key="filter">
+              <li><a href="#" class="country" ok-sel=".{{photo.country}}">{{photo.country}}</a></li><li><a href="#" class="month" ok-sel=".{{photo.month}}">{{photo.month}}</a></li><li><a href="#" class="year" ok-sel="*">{{photo.year}}</a></li>
+            </ul>
+          </div>
         </div>
+
       </div>
     </main>
