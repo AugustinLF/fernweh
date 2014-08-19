@@ -1,7 +1,5 @@
 (function() {
-  var app = angular.module('app', ['iso.directives', 'ui.router']);/*.run('$stateProvider', '$urlRouterProvider', '$state', function($stateProvider, $urlRouterProvider, $state) {
-
-  });*/
+  var app = angular.module('app', ['iso.directives', 'ui.router']);
 
   Parse.initialize("ePIyiLv520OUiP4YYPdUFwue7JeVsWsxsSUvvUpc", "xAqLZYUadKWeZrLf2x5aF4RtJyH086R6I1cbbMjk");
 
