@@ -19,9 +19,8 @@
   </head>
   <body ng-controller="indexController as indexCtrl">
 
-    <headroom class="navbar" tolerance="5" offset="205">
-      <div class="container">
-        <div id="navbarRow">
+    <div id="header" class="navbar" tolerance="5" offset="205">
+        <div id="header-row">
           <div class="navbar-header">
             <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
               <span class="sr-only">Toggle navigation</span>
@@ -33,17 +32,21 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="list-inline thomas-navbar navbar-nav navbar-right">
-              <li><a href="#">Feed</a></li>
-              <li><a href="#">Grid</a></li>
-              <li><a href="#">Personal</a></li>
+              <li><a href="#">FEED</a></li>
+              <li><a href="#">GRID</a></li>
+              <li><a href="#">PERSONAL</a></li>
               <li><a id="header-wrench" href="#" ng-click="indexCtrl.logOut()">&nbsp;</a></li>
             </ul>
           </div>
         </div>
-      </div>
-    </headroom>
+        <div id="header-avatar">&nbsp;</div>
+        <headroom id="header-bio">
+          <p>Alice</p>
+          <p>Being awesome and shyt</p>
+        </headroom>
+    </div>
 
-    <div ui-view></div>
+    <div id="page" ui-view></div>
 
   </body>
 
@@ -52,8 +55,8 @@
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/headroom.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/angular.isotope.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/angular.isotope.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 
   <script src="js/angular.app.js"></script>

@@ -1,15 +1,19 @@
 <div class="container" >
   <form class="form-signin" role="form" ng-controller="registerController as registerCtrl" ng-submit="registerCtrl.addUser()">
     <h2 class="form-signin-heading">Register</h2>
-    <input type="email" class="form-control" placeholder="Email" ng-model="registerCtrl.user.email" required autofocus>
-    <input type="password" class="form-control" placeholder="password" ng-model="registerCtrl.user.password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <label for="email">Email</label>
+    <input type="email" placeholder="" ng-model="registerCtrl.user.email" required="required" autofocus>
+    <label for="password">Password</label>
+    <input type="password" placeholder="" ng-model="registerCtrl.user.password" required="required">
+    <button type="submit">Register</button>
   </form>
 
   <form class="form-signin" role="form" ng-controller="signInController as signInCtrl" ng-submit="signInCtrl.signIn()">
     <h2 class="form-signin-heading">Sign in</h2>
-    <input type="email" class="form-control" placeholder="Email" ng-model="signInCtrl.user.email" required autofocus>
-    <input type="password" class="form-control" placeholder="password" ng-model="signInCtrl.user.password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <label for="email">Email</label>
+    <input type="email" placeholder="" ng-model="signInCtrl.user.email" required="required">
+    <label for="password">Password</label>
+    <input type="password" placeholder="" ng-model="signInCtrl.user.password" required="required">
+    <button type="submit">Sign in</button>
   </form>
 </div>

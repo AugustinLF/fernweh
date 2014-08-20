@@ -1,31 +1,21 @@
 <main id="grid" ng-controller="gridController as grid" class="container">
   <div id="itemContainer" id="isotopeContainer" isotope-container ng-cloak>
 
-    <div class="item">
+    <div class="item {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="itemController as item" isotope-item>
       <div class="itemRow">
-        <div class="itemCell itemUser" style="width:300px; height:400px;">
-          <img ng-src="img/profile.jpg" alt="user" title="user" />
-          <ul class="itemBio">
-            <li><a href="#" class="itemUsername">Thomas</a></li>
-            <li>Travel Enthusiast</li>
-            <li>&nbsp;</li>
-            <li>&nbsp;</li>
-            <li><a href="#" class="itemFollow" ng-click="item.followUser(true, 'Thomas')">Follow</a></li>
-          </ul>
+        <div class="itemCell itemDesc" data-country="{{photo.country}}" opt-kind ok-key="filter">
+          <div class="itemInfo">
+            <a href="#" class="country" ok-sel=".{{photo.country}}">{{photo.country}}</a>
+            <a href="#" class="month" ok-sel=".{{photo.month}}">{{photo.month}}</a>
+            <a href="#" class="year" ok-sel="*">{{photo.year}}</a>
+          </div>
+          <div class="itemAvatar"><img src="img/profile.jpg" /></div>
         </div>
       </div>
-    </div>
-
-    <div class="item {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="itemController as item" isotope-item>
       <div class="itemRow">
         <div class="itemCell itemImg" style="width:{{photo.img[item.isSrc].width}}px; height:{{photo.img[item.isSrc].height}}px;">
           <img ng-src="{{photo.img[item.isSrc].src}}" alt="{{photo.id}}" title="{{item.isSrc}}" />
         </div>
-      </div>
-      <div class="itemRow">
-        <ul class="itemDesc itemCell list-inline thomas-navbar" data-country="{{photo.country}}" opt-kind ok-key="filter">
-          <li><a href="#" class="country" ok-sel=".{{photo.country}}">{{photo.country}}</a></li><li><a href="#" class="month" ok-sel=".{{photo.month}}">{{photo.month}}</a></li><li><a href="#" class="year" ok-sel="*">{{photo.year}}</a></li>
-        </ul>
       </div>
     </div>
 
