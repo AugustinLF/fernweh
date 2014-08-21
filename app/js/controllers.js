@@ -1,27 +1,23 @@
-/* global angular, Parse */
+/* global angular */
 
-angular.module('photoAppControllers', ['ui.router'])
+angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
   // Handle the registration process by creating a new user through Parse
-  .controller('registerController', function($state) {
+  .controller('registerController', function($state, parseUserServices) {
     this.user = {};
 
+    // Add a user to the database and if success, changes the state to connected
     this.addUser = function() {
-      var user = new Parse.User();
-      user.set('username', this.user.email);
-      user.set('email', this.user.email);
-      user.set('password', this.user.password);
-
-      user.signUp(null, {
-        success: function(user) {
-          // Once the user is created, we change the state so the user is logged in and brought to the home view
+      parseUserServices.createUser(this.user.email, this.user.password, function(error) {
+        if(error) {
+          // Do stuff
+          console.log(error); // temporary
+        } else {
           $state.go('connected');
-        },
-        error: function(user, error) {
-          // Show the error message somewhere and let the user try again.
-          alert('Error: ' + error.code + ' ' + error.message);
         }
       });
+
+      // We reinitialise the user model in case of letter use of the sign up form
       this.user = {};
     };
   })
@@ -46,9 +42,9 @@ angular.module('photoAppControllers', ['ui.router'])
     };
   }])
 
-  // Handle the display of the view in the index, if the user should see the login view or the home
-  .controller('indexController', function($state) {
-    if (Parse.User.current()) {
+  // Handles the display of the view in the index, if the user should see the login view or the home
+  .controller('indexController', function($state, parseUserServices) {
+    if (parseUserServices.getCurrentUser()) {
       $state.go('connected');
     } else {
       $state.go('notConnected');
@@ -56,28 +52,29 @@ angular.module('photoAppControllers', ['ui.router'])
 
     // Logout the user and changes the view
     this.logOut = function() {
-      Parse.User.logOut();
+      parseUserServices.logOut();
       $state.go('notConnected');
     };
   })
 
   // Controller of the sign in form
-  .controller('signInController', function($state) {
+  .controller('signInController', function($state, parseUserServices) {
     this.user = {};
+
+    // Activated when the users validates the form
     this.signIn = function() {
-      Parse.User.logIn(this.user.email, this.user.password, {
-        success: function(user) {
-          $state.go('connected');
-        },
-        error: function(user, error) {
+      parseUserServices.logIn(this.user.email, this.user.password, function(error) {
+        if(error) {
           // The login failed. Check error to see why.
           alert('Error: ' + error.code + ' ' + error.message);
+        } else {
+          $state.go('connected');
         }
       });
     };
   })
 
-  // Controller instanciated for each item
+  // Controller instanciated for each item (trip)
   .controller('itemController', function() {
     this.isSrc = 'load';
     this.setSrc = function(setSrc) {
