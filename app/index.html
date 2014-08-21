@@ -31,11 +31,19 @@
             <a id="header-logo" href="#">&nbsp;</a>
           </div>
           <div class="navbar-collapse collapse">
-            <ul class="list-inline thomas-navbar navbar-nav navbar-right">
+            <ul id="header-menu" class="list-inline navbar-nav navbar-right">
               <li><a href="#">FEED</a></li>
               <li><a href="#">GRID</a></li>
               <li><a href="#">PERSONAL</a></li>
-              <li><a id="header-wrench" href="#" ng-click="indexCtrl.logOut()">&nbsp;</a></li>
+              <li>
+                  <button class="dropdown-toggle" type="button" id="header-settings" data-toggle="dropdown">&nbsp;</button>
+                  <ul id="header-settingsdrop" class="dropdown-menu" role="menu" aria-labelledby="header-settings">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                    <li role="presentation"><a id="header-wrench" href="#" ng-click="indexCtrl.logOut()">Logout</a></li>
+                  </ul>
+              </li>
             </ul>
           </div>
         </div>

@@ -11,14 +11,18 @@ red #B94A48 //error
 */
 
 /* LAYOUT */
+html, body {
+	min-height: 120%;
+}
+
 body {
-	height: 120%;
 	background-color: #263238;
 	background-image: url('../img/bg/blur_bluegrey_2600x1900.jpg');
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-size: 100%;
-	color: #35495E;
+	color: #263238;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 }
 
 .hidden {
@@ -36,24 +40,6 @@ a:hover, a:active {
 	color: #549ECB;
 	text-decoration: underline;
 }
-
-
-/* COMPONENTS */
-
-/* nav bar with vertical bars */
-ul.thomas-navbar li {
-	padding-left: 10px;
-	padding-right: 0;
-}
-
-ul.thomas-navbar li+li:before {
-	content: " | ";
-	padding-right: 10px;
-	color: #ECEFF0;
-	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-}
-
-
 
 /* #header */
 #header.navbar {
@@ -88,11 +74,11 @@ ul.thomas-navbar li+li:before {
 }
 
 #header .navbar-header button.navbar-toggle {
-	margin-top: 13px;
+	margin-top: 22px;
 }
 
 #header .navbar-header button.navbar-toggle .icon-bar {
-	background: #35495E;
+	background: #263238;
 }
 
 #header .navbar-header button.navbar-toggle:hover .icon-bar {
@@ -135,10 +121,24 @@ ul.thomas-navbar li+li:before {
 }
 
 #header .navbar-nav a {
-padding: 0 10px;
+	padding: 0 10px;
+}
+#header #header-menu {
+	margin-bottom: 0;
 }
 
-#header .navbar-nav #header-wrench {
+#header #header-menu>li {
+	padding-left: 10px;
+	padding-right: 0;
+}
+
+#header #header-menu>li+li:before {
+	content: " | ";
+	padding-right: 10px;
+	color: #ECEFF0;
+}
+
+#header .navbar-nav #header-settings {
 	width: 25px;
 	height: 25px;
 	display: inline-block;
@@ -147,26 +147,37 @@ padding: 0 10px;
 	background-image: url('../img/icons/icon_wrench.png');
 	background-repeat: no-repeat;
 	background-position: center top;
+	background-color: transparent;
+	border: none;
 	padding: 0px;
 }
 
-#header .navbar-nav #header-wrench:hover {
+#header .navbar-nav #header-settings:hover {
 	background-position: bottom;
 }
 
-#header ul {
-	margin-bottom: 0;
+#header .navbar-nav #header-settingsdrop {
+	margin-right: 20px;
 }
 
-#header li {
-	padding-left: 10px;
-	padding-right: 0;
+#header .navbar-nav #header-settingsdrop li {
+	padding: 5px 10px;
 }
 
-#header li+li:before {
-	content: " | ";
-	padding-right: 10px;
+#header .navbar-nav #header-settingsdrop a:link {
+	padding: 5px 10px;
+	color: #263238;
+	text-decoration: none;
 }
+
+#header .navbar-nav #header-settingsdrop a:hover {
+	cursor: pointer;
+	color: #549ECB;
+	text-decoration: underline;
+	background-color: transparent;
+	background-image: none;
+}
+
 
 #header img {
 	max-height: 100%;
