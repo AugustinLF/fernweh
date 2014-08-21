@@ -4,10 +4,12 @@ angular.module('photoApp', [
     'ui.router',
     'photoAppControllers',
     'photoAppDirectives',
-    'photoAppServices'
+    'parseServices'
   ])
+
   .config(['$stateProvider', function($stateProvider) {
-    // Set up the states
+
+    // Set up the states via ui.router to display or the signup or the login, if the user is connected or not
     $stateProvider
       .state('connected', {
         templateUrl: 'partials/gallery.html'
@@ -16,6 +18,7 @@ angular.module('photoApp', [
         templateUrl: 'partials/signup.html'
       });
     }])
-  .run(['ParseSDK', function(photoAppServices) {
 
+  // Initialisation of Parse SDK
+  .run(['ParseSDK', function(parseServices) {
   }]);

@@ -1,7 +1,7 @@
 /* global angular, Headroom */
 
 angular.module('photoAppDirectives', ['iso.directives'])
-    //headroom
+  // Headroom header
   .directive('headroom', function() {
     return {
       restrict: 'EA',
@@ -24,15 +24,17 @@ angular.module('photoAppDirectives', ['iso.directives'])
     };
   })
 
+  // Displays the grid template
   .directive('mainGrid', function() {
     return {
       restrict: 'E',
       templateUrl: 'partials/main_grid.html'
     };
   })
+
+  // Fixes browser bug: https://groups.google.com/forum/#!topic/angular/6NlucSskQjY
   .directive('formAutofillFix', function() {
     return function(scope, elem, attrs) {
-      // Fixes Chrome bug: https://groups.google.com/forum/#!topic/angular/6NlucSskQjY
       elem.prop('method', 'POST');
    
       // Fix autofill issues where Angular doesn't know about autofilled inputs
