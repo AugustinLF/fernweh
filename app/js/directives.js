@@ -1,3 +1,5 @@
+/* global angular, Headroom */
+
 angular.module('photoAppDirectives', ['iso.directives'])
     //headroom
   .directive('headroom', function() {

@@ -1,3 +1,5 @@
+/* global angular, Parse, photos, morephotos */
+
 angular.module('photoAppControllers', ['ui.router'])
   .controller('registerController', function() {
     this.user = {};
@@ -13,23 +15,28 @@ angular.module('photoAppControllers', ['ui.router'])
         },
         error: function(user, error) {
           // Show the error message somewhere and let the user try again.
-          alert("Error: " + error.code + " " + error.message);
+          alert('Error: ' + error.code + ' ' + error.message);
         }
       });
       this.user = {};
     };
   })
 
-  .controller('gridController', function() {
-    this.photos = photos;
+  .controller('gridController', [ '$http', function($http){
+    var grid = this;
+    this.photos = [];
+    $http.get('data/photos.json').success(function(data) {
+      grid.photos = data;
+    });
 
-    this.loadMore = function() {
-      morephotos.forEach(function(morephoto) {
-        photos.push(morephoto);
-      });     /* <=> photos.push.apply(photos,morephotos);*/
-    }
-    /* needs to ajax request new morephotos array! */
-  })
+     this.loadMore = function() {
+      $http.get('data/morePhotos.json').success(function(data) {
+        data.forEach(function(morephoto) {
+           grid.photos.push(morephoto);
+        });     /* <=> photos.push.apply(photos,morephotos);*/
+      });
+    };
+  }])
 
   .controller('indexController', function($state) {
 
@@ -54,7 +61,7 @@ angular.module('photoAppControllers', ['ui.router'])
         },
         error: function(user, error) {
           // The login failed. Check error to see why.
-          alert("Error: " + error.code + " " + error.message);
+          alert('Error: ' + error.code + ' ' + error.message);
         }
       });
     };
@@ -69,8 +76,8 @@ angular.module('photoAppControllers', ['ui.router'])
     };
 
     this.followUser = function(status, username) {
-      this.isSrc = setSrc;
-    }
+      
+    };
   })
 
   .controller('navController', function() {
