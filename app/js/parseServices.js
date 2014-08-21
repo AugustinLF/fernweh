@@ -6,23 +6,27 @@ angular.module('parseServices', [])
     Parse.initialize('ePIyiLv520OUiP4YYPdUFwue7JeVsWsxsSUvvUpc', 'xAqLZYUadKWeZrLf2x5aF4RtJyH086R6I1cbbMjk');
   })
 
-  .service('parseUserServices', function() {
+  .service('parseUserServices', function($q) {
 
-    // Creates a user with an input of an email/password, and asynchronously sets the callback
-    this.createUser = function(email, password, callback) {
-      var user = new Parse.User();
+    // Creates a user with an input of an email/password, and returns a promise
+    this.createUser = function(email, password) {
+      var user = new Parse.User(),
+        deferred = $q.defer();
+
       user.set('username', email);
       user.set('email', email);
       user.set('password', password);
 
       user.signUp(null, {
         success: function(user) {
-          callback();
+          deferred.resolve();
         },
         error: function(user, error) {
-          callback(error);
+          deferred.reject(error);
         }
       });
+
+      return deferred.promise;
     };
 
     // Returns Parse user object is a user is connected, if not returns null
@@ -35,16 +39,22 @@ angular.module('parseServices', [])
       Parse.User.logOut();
     };
 
-    // Logs in the user with the email/password input, and asynchronously returns the eventual error
-    this.logIn = function(email, password, callback) {
+    // Logs in the user with the email/password input, and returns a promise
+    this.logIn = function(email, password) {
+      var deferred = $q.defer();
+
       Parse.User.logIn(email, password, {
         success: function(user) {
-          callback();
+          console.log('perfect');
+          deferred.resolve();
         },
         error: function(user, error) {
-          callback(error);
+          console.log('problem');
+          deferred.reject(error);
         }
       });
+
+      return deferred.promise;
     };
 
   });

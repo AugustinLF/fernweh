@@ -4,17 +4,17 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
   // Handle the registration process by creating a new user through Parse
   .controller('registerController', function($state, parseUserServices) {
+    // Initialiases the model of the form
     this.user = {};
 
     // Add a user to the database and if success, changes the state to connected
     this.addUser = function() {
-      parseUserServices.createUser(this.user.email, this.user.password, function(error) {
-        if(error) {
-          // Do stuff
-          console.log(error); // temporary
-        } else {
-          $state.go('connected');
-        }
+      parseUserServices.createUser(this.user.email, this.user.password)
+      .then(function() {  // No errors
+        $state.go('connected');
+      }, function(error) { // Error
+        // Do stuff
+        console.log(error); // temporary
       });
 
       // We reinitialise the user model in case of letter use of the sign up form
@@ -63,13 +63,12 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
     // Activated when the users validates the form
     this.signIn = function() {
-      parseUserServices.logIn(this.user.email, this.user.password, function(error) {
-        if(error) {
-          // The login failed. Check error to see why.
-          alert('Error: ' + error.code + ' ' + error.message);
-        } else {
-          $state.go('connected');
-        }
+      parseUserServices.logIn(this.user.email, this.user.password)
+      .then(function() {  // No errors
+        $state.go('connected');
+      }, function(error) {
+        // The login failed. Check error to see why.
+        alert('Error: ' + error.code + ' ' + error.message);
       });
     };
   })
