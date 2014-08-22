@@ -471,7 +471,6 @@ nav {
 	background-color: transparent;
 	color: #ECEFF0;
 	text-transform: uppercase;
-	animation: buttonLoading 5s;
 }
 
 .form-signin button:hover {
