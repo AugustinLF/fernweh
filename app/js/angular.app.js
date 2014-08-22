@@ -15,7 +15,7 @@ angular.module('photoApp', [
         templateUrl: 'partials/gallery.html'
       })
       .state('notConnected', {
-        templateUrl: 'partials/signup.html'
+        templateUrl: 'partials/start.html'
       });
     }])
 

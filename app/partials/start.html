@@ -1,11 +1,11 @@
 <div class="container" >
-  <form class="form-signin" role="form" ng-controller="registerController as registerCtrl" ng-submit="registerCtrl.addUser()" form-autofill-fix>
-    <h2 class="form-signin-heading">Register</h2>
+  <form class="form-signin" role="form" ng-controller="signUpController as signUpCtrl" ng-submit="signUpCtrl.addUser()" form-autofill-fix>
+    <h2 class="form-signin-heading">Sign up</h2>
     <label for="email">Email</label>
-    <input type="email" placeholder="" ng-model="registerCtrl.user.email" required="required" autofocus>
+    <input type="email" placeholder="" ng-model="signUpCtrl.user.email" required="required" autofocus>
     <label for="password">Password</label>
-    <input type="password" placeholder="" ng-model="registerCtrl.user.password" required="required">
-    <button type="submit">Register</button>
+    <input type="password" placeholder="" ng-model="signUpCtrl.user.password" required="required">
+    <button type="submit">Sign Up</button>
   </form>
 
   <form class="form-signin" role="form" ng-controller="signInController as signInCtrl" ng-submit="signInCtrl.signIn()" form-autofill-fix>
