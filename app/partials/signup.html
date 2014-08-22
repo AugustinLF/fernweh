@@ -5,7 +5,7 @@
     <input type="email" placeholder="" ng-model="registerCtrl.user.email" required="required" autofocus>
     <label for="password">Password</label>
     <input type="password" placeholder="" ng-model="registerCtrl.user.password" required="required">
-    <button type="submit">Register</button>
+    <button type="submit"><span>Register</span></button>
   </form>
 
   <form class="form-signin" role="form" ng-controller="signInController as signInCtrl" ng-submit="signInCtrl.signIn()" form-autofill-fix>
@@ -14,6 +14,6 @@
     <input type="email" placeholder="" ng-model="signInCtrl.user.email" required="required">
     <label for="password">Password</label>
     <input type="password" placeholder="" ng-model="signInCtrl.user.password" required="required">
-    <button type="submit">Sign in</button>
+    <button type="submit"><span>Sign in</span></button>
   </form>
 </div>
