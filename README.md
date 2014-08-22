@@ -8,8 +8,9 @@
 - Grid: panel that shows items (used in multiple views)
 
 ## Actions
-- Sign in: To connect to a user account
+- Sign in: To connect to a user account (visitor => user)
 - Sign up: to create a user account
+- Log out: to disconnect from a user account (user => visitor)
 
 ## Views
 - Start: Presentation of app, log in and sign up options

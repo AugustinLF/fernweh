@@ -3,7 +3,7 @@
 angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
   // Handle the registration process by creating a new user through Parse
-  .controller('registerController', function($state, parseUserServices) {
+  .controller('signUpController', function($state, parseUserServices) {
     // Initialiases the model of the form
     this.user = {};
 
@@ -63,7 +63,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
     // Activated when the users validates the form
     this.signIn = function() {
-      parseUserServices.logIn(this.user.email, this.user.password)
+      parseUserServices.signIn(this.user.email, this.user.password)
       .then(function() {  // No errors
         $state.go('connected');
       }, function(error) {
