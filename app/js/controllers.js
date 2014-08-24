@@ -45,7 +45,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
   // Handles the display of the view in the index, if the user should see the login view or the home
   .controller('indexController', function($state, parseUserServices) {
     if (parseUserServices.getCurrentUser()) {
-      $state.go('connected');
+      $state.go('connected.feed');
     } else {
       $state.go('notConnected');
     }
@@ -65,7 +65,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
     this.signIn = function() {
       parseUserServices.signIn(this.user.email, this.user.password)
       .then(function() {  // No errors
-        $state.go('connected');
+        $state.go('connected.feed');
       }, function(error) {
         // The login failed. Check error to see why.
         alert('Error: ' + error.code + ' ' + error.message);

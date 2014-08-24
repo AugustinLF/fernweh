@@ -47,11 +47,9 @@ angular.module('parseServices', [])
 
       Parse.User.logIn(email, password, {
         success: function(user) {
-          console.log('perfect');
           deferred.resolve();
         },
         error: function(user, error) {
-          console.log('problem');
           deferred.reject(error);
         }
       });
@@ -59,4 +57,6 @@ angular.module('parseServices', [])
       return deferred.promise;
     };
 
-  });
+  })
+
+  .service('parse');

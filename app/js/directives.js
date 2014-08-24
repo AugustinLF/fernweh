@@ -24,14 +24,6 @@ angular.module('photoAppDirectives', ['iso.directives'])
     };
   })
 
-  // Displays the grid template
-  .directive('mainGrid', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'partials/main_grid.html'
-    };
-  })
-
   // Fixes browser bug: https://groups.google.com/forum/#!topic/angular/6NlucSskQjY
   .directive('formAutofillFix', function() {
     return function(scope, elem, attrs) {

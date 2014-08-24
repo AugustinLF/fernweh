@@ -11,11 +11,17 @@ angular.module('photoApp', [
 
     // Set up the states via ui.router to display or the signup or the login, if the user is connected or not
     $stateProvider
-      .state('connected', {
-        templateUrl: 'partials/gallery.html'
-      })
       .state('notConnected', {
         templateUrl: 'partials/start.html'
+      })
+      .state('connected', {
+        templateUrl: 'partials/connected.html'
+      })
+      .state('connected.feed', {
+        templateUrl: 'partials/main_grid.html'
+      })
+      .state('connected.create', {
+        templateUrl: 'partials/create.html'
       });
     }])
 

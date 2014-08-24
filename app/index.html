@@ -19,45 +19,6 @@
   </head>
   <body ng-controller="indexController as indexCtrl">
 
-    <div id="header" class="navbar" tolerance="5" offset="205">
-        <div id="header-row">
-          <div class="navbar-header">
-            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a id="header-logo" href="#">&nbsp;</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul id="header-menu" class="list-inline navbar-nav navbar-right">
-              <li><a href="#">FEED</a></li>
-              <li><a href="#">CREATE</a></li>
-              <li><a href="#">DISCOVER</a></li>
-              <li>
-                  <button class="dropdown-toggle" type="button" id="header-settings" data-toggle="dropdown"><span>&nbsp;</span></button>
-                  <ul id="header-settingsdrop" class="dropdown-menu" role="menu" aria-labelledby="header-settings">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Profile</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Feed</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Discover</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Settings</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Account</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="indexCtrl.logOut()">Logout</a></li>
-                  </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div id="header-avatar">&nbsp;</div>
-        <headroom id="header-bio">
-          <p>Alice</p>
-          <p>Being awesome and shyt</p>
-        </headroom>
-    </div>
-
     <div id="page" ui-view></div>
 
   </body>
