@@ -59,4 +59,36 @@ angular.module('parseServices', [])
 
   })
 
-  .service('parse');
+
+  .service('parseTripService', function() {
+
+    // Upload a trip (picture + info)
+    // @param User ID
+    // @param Picture file
+    // @param The filter used (or 'None')
+    // @param An array of up to five hashtags
+    // @param A country
+    // @param A month
+    // @param A year
+    this.uploadATrip = function(userId, pictureFile, filter, hashtags, country, month, year) {
+      var Trip = Parse.Object.extend('Trip'),
+        trip = new Trip();
+        i,
+        numHashtag;
+
+      trip.set('userId', userId);
+      trip.set('filter', filter);
+
+      for (i = 1; i < 6; i++) {
+        trip.set('hashtag' + i, hashtags[i-1]);
+      }
+
+      trip.set('country', country);
+      trip.set('month', month);
+      trip.set('year', year);
+
+      trip.timestamp = Date.now();
+
+      console.log(trip);
+    };
+  });
