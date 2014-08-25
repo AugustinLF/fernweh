@@ -13,6 +13,7 @@ red #B94A48 //error
 /* LAYOUT */
 html, body {
 	min-height: 120%;
+	height: 120%;
 }
 
 body {
@@ -225,14 +226,24 @@ nav {
 
 }
 
+/* SCOPE */
+#scope {
+	height: 100%;
+	margin: 0 auto;
+}
 
 /* PAGE */
 #page {
-	margin-top: 250px;
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 150px;
 }
 
 
-
+/* GRID */
+#grid {
+	margin-top: 100px;
+}
 
 #grid .item {
 	position: relative;
@@ -417,9 +428,7 @@ nav {
 /* LOGIN */
 .form-signin {
 	max-width: 330px;
-	padding: 15px;
 	margin: 0 auto;
-	margin-top: 50px;
 	font-weight: normal;
 	font-size: 15px;
 	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
@@ -441,7 +450,7 @@ nav {
 	text-transform: uppercase;
 }
 
-.form-signin input {
+.form-signin input, .form-signin select {
   position: relative;
   height: auto;
   width: 100%;
@@ -452,7 +461,7 @@ nav {
   font-size: 15px;
 }
 
-.form-signin input:focus {
+.form-signin input:focus, .form-signin select:focus {
   z-index: 2;
 }
 /*
@@ -489,6 +498,109 @@ nav {
 	text-transform: uppercase;
 }
 
+
+/* CREATE CANVAS */
+#create {
+	display: block;
+	height: 60%;
+	width: 100%;
+}
+
+#createRowTop {
+	display: block;
+	height: 80%;
+}
+
+#createStatus {
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.createStatusIcons {
+	display: block;
+	vertical-align: middle;
+	height: 20%;
+}
+
+#createCanvas {
+	display: inline-block;
+	width: 80%;
+	height: 100%;
+	float: right;
+	background-color: #263238;
+	overflow: auto;
+}
+
+#createControls {
+	display: block;
+	height: 20%;
+	width: 100%;
+	margin-top: 20px;
+}
+
+#createControlsLeft {
+	float: left;
+	width: 20%;
+}
+
+#createControlsRight {
+	float: right;
+	width: 80%;
+}
+
+#createControlsRight>a:hover {
+	text-decoration: none;
+	border: none;
+	background-position: center bottom;
+}
+
+.createControls {
+	display: inline-block;
+}
+
+.createStatusIcons>div {
+	width: 50px;
+	height: 50px;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+#createStatusIconsUpload { background-image: url('../img/icons/icon_create_upload.png'); }
+#createStatusIconsCrop { background-image: url('../img/icons/icon_create_crop.png'); }
+#createStatusIconsFilter { background-image: url('../img/icons/icon_create_filter.png'); }
+#createStatusIconsInfo { background-image: url('../img/icons/icon_create_info.png'); }
+#createStatusIconsPublish { background-image: url('../img/icons/icon_create_publish.png'); }
+
+#createControlsRightBack {
+	width: 50px;
+	height: 50px;
+	margin-left: 50px;
+	background-image: url('../img/icons/icon_back.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	float: left;
+}
+
+#createControlsRightForward {
+	width: 50px;
+	height: 50px;
+	margin-right: 50px;
+	background-image: url('../img/icons/icon_forward.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	float: right;
+}
+
+
+
+
+
+
+
 /* CORRECTIONS */
 #grid #itemContainer {
 	margin: 0 auto;
@@ -522,6 +634,12 @@ nav {
 		padding: 20px 0;
 		margin: 0 auto;
 	}
+	#createStatus, #createCanvas {
+		display: block;
+	}
+	.hidden-sm {
+		display: none;
+	}
 }
 @media (min-width: 768px) and (max-width: 991px) {	/* .container 750px */
 	#grid #itemContainer {
@@ -534,15 +652,33 @@ nav {
 	#header #header-menu>li+li:before {
 		padding-right: 0px;
 	}
+	#createStatus, #createCanvas {
+		display: inline-block;
+	}
+	.hidden-lg {
+		display: none;
+	}
 }
 @media (min-width: 992px) and (max-width: 1199px) {	/* .container 970px */
 	#grid #itemContainer {
 		width: 960px;
 	}
+	#createStatus, #createCanvas {
+		display: inline-block;
+	}
+	.hidden-lg {
+		display: none;
+	}
 }
 @media (min-width: 1200px) {	/* .container 1170px */
 	#grid #itemContainer {
 		width: 960px;
+	}
+	#createStatus, #createCanvas {
+		display: inline-block;
+	}
+	.hidden-lg {
+		display: none;
 	}
 }
 
