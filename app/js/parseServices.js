@@ -72,23 +72,37 @@ angular.module('parseServices', [])
     // @param A year
     this.uploadATrip = function(userId, pictureFile, filter, hashtags, country, month, year) {
       var Trip = Parse.Object.extend('Trip'),
-        trip = new Trip();
+        trip = new Trip(),
         i,
         numHashtag;
 
-      trip.set('userId', userId);
-      trip.set('filter', filter);
+      var parseFile = new Parse.File('trip.png', pictureFile);
 
-      for (i = 1; i < 6; i++) {
-        trip.set('hashtag' + i, hashtags[i-1]);
-      }
+      parseFile.save().then(function() {
+        trip.set('userId', userId);
+        trip.set('filter', filter);
 
-      trip.set('country', country);
-      trip.set('month', month);
-      trip.set('year', year);
+        for (i = 1; i < 6; i++) {
+          trip.set('hashtag' + i, hashtags[i-1] || 'no hashtag');
+        }
 
-      trip.timestamp = Date.now();
+        trip.set('country', country);
+        trip.set('month', month);
+        trip.set('year', year);
+        trip.set('timestamp', Date.now());
+        trip.set('picture', parseFile);
 
-      console.log(trip);
+        trip.save(null, {
+          success: function(trip) {
+            alert('New object created with objectId: ' + trip.id);
+          },
+          error: function(trip, error) {
+            alert('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+      }, function(error) {
+        // Handle error
+        console.log(error);
+      });
     };
   });

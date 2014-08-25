@@ -22,13 +22,13 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
     };
   })
 
-  .controller('testUploadController', function('parseTripService', 'parseUserServices') {
+  .controller('testUploadController', function(parseTripService, parseUserServices) {
     this.submit = function() {
       parseTripService.uploadATrip(
         parseUserServices.getCurrentUser().id,
         undefined,
         'None',
-        ['#Awesome', '#Pro', '#Brrra'],
+        ['#Awesome', '#Pro', '#Brrra', '#lol'],
         'Italy',
         'August',
         2014
