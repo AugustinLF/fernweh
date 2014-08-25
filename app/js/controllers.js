@@ -22,6 +22,20 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
     };
   })
 
+  .controller('testUploadController', function(parseTripService, parseUserServices) {
+    this.submit = function() {
+      parseTripService.uploadATrip(
+        parseUserServices.getCurrentUser().id,
+        undefined,
+        'None',
+        ['#Awesome', '#Pro', '#Brrra', '#lol'],
+        'Italy',
+        'August',
+        2014
+        );
+    };
+  })
+
   // Handle the display of the trips
   .controller('gridController', [ '$http', function($http){
     var grid = this;
