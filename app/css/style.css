@@ -424,6 +424,38 @@ nav {
 #grid .item .itemImg .itemInteraction li:nth-child(5):hover a { background-color:#90A4AE; }
 
 
+/* LOADING */
+.loading {
+  width: 75px;
+  height: 75px;
+  margin: 100px auto;
+  background-color: #ECEFF0;
+
+  border-radius: 100%;  
+  -webkit-animation: scaleout 1.0s infinite ease-in-out;
+  animation: scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleout {
+  0% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+
 
 /* LOGIN */
 .form-signin {
@@ -499,6 +531,8 @@ nav {
 }
 
 
+
+
 /* CREATE CANVAS */
 #create {
 	display: block;
@@ -512,6 +546,7 @@ nav {
 }
 
 #createStatus {
+	position: relative;
 	display: inline-block;
 	width: 20%;
 	height: 100%;
@@ -521,9 +556,40 @@ nav {
 }
 
 .createStatusIcons {
+	position: relative;
 	display: block;
 	vertical-align: middle;
 	height: 20%;
+}
+
+.createStatusIcons>div {
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+	width: 50px;
+	height: 50px;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+#createStatusIconsUpload { background-image: url('../img/icons/icon_create_upload.png'); }
+#createStatusIconsCrop { background-image: url('../img/icons/icon_create_crop.png'); }
+#createStatusIconsFilter { background-image: url('../img/icons/icon_create_filter.png'); }
+#createStatusIconsInfo { background-image: url('../img/icons/icon_create_info.png'); }
+#createStatusIconsPublish { background-image: url('../img/icons/icon_create_publish.png'); }
+
+#createStatusArrow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0; 
+	height: 0; 
+	margin-top: 15px;
+	border-bottom: 15px solid transparent;
+	border-top: 15px solid transparent;
+	border-right: 15px solid #263238;
+	font-size: 0;
+	line-height: 0;
 }
 
 #createCanvas {
@@ -548,8 +614,10 @@ nav {
 }
 
 #createControlsRight {
+	display: table;
 	float: right;
 	width: 80%;
+	text-align: center;
 }
 
 #createControlsRight>a:hover {
@@ -562,37 +630,34 @@ nav {
 	display: inline-block;
 }
 
-.createStatusIcons>div {
-	width: 50px;
-	height: 50px;
-	background-repeat: no-repeat;
-	display: inline-block;
-}
-
-#createStatusIconsUpload { background-image: url('../img/icons/icon_create_upload.png'); }
-#createStatusIconsCrop { background-image: url('../img/icons/icon_create_crop.png'); }
-#createStatusIconsFilter { background-image: url('../img/icons/icon_create_filter.png'); }
-#createStatusIconsInfo { background-image: url('../img/icons/icon_create_info.png'); }
-#createStatusIconsPublish { background-image: url('../img/icons/icon_create_publish.png'); }
-
 #createControlsRightBack {
+	display: table-cell;
 	width: 50px;
 	height: 50px;
 	margin-left: 50px;
 	background-image: url('../img/icons/icon_back.png');
 	background-repeat: no-repeat;
-	background-position: left top;
-	float: left;
+	background-position: center top;
 }
 
 #createControlsRightForward {
+	display: table-cell;
 	width: 50px;
 	height: 50px;
 	margin-right: 50px;
 	background-image: url('../img/icons/icon_forward.png');
 	background-repeat: no-repeat;
-	background-position: left top;
-	float: right;
+	background-position: center top;
+}
+
+#createControlsRightGallery {
+	display: table-cell;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	background-image: url('../img/icons/icon_gallery.png');
+	background-repeat: no-repeat;
+	background-position: center top;
 }
 
 
