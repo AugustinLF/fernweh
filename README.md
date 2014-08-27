@@ -22,3 +22,8 @@
 - Create: Wizard to upload new photo and add filters and information (can be an overlay)
 - Settings: Settings for user (can be an overlay)
 - Login: Login/SignUp screen (can also be overlay) > Facebook/Twitter
+
+
+
+##
+- Start Grunt Server: grunt http-server
