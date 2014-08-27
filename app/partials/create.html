@@ -1,42 +1,63 @@
-<div id="create">
-  <div id="createRowTop">
-    <div id="createStatus">
-      <div class="createStatusIcons"><div id="createStatusIconsUpload">&nbsp;</div></div>
-      <div class="createStatusIcons"><div id="createStatusIconsCrop">&nbsp;</div></div>
-      <div class="createStatusIcons"><div id="createStatusIconsFilter">&nbsp;</div></div>
-      <div class="createStatusIcons"><div id="createStatusIconsInfo">&nbsp;</div></div>
-      <div class="createStatusIcons"><div id="createStatusIconsPublish">&nbsp;</div></div>
-      <span id="createStatusArrow">&nbsp;</span>
-    </div>
-    <div id="createCanvas">
-      <form type="file">
-        Drop an image here to upload
-      </form>
-      <form class="form-signin hidden">
-        <label for="country">Country</label>
-        <select type="country" placeholder="" required="required">
-          <option value="Italy">Italy</option>
-          <option value="France">France</option>
-        </select>
-        <label for="month">Month</label>
-        <select type="month" placeholder="" required="required">
-          <option value="January">January</option>
-          <option value="February">February</option>
-        </select>
-        <label for="year">Year</label>
-        <input type="year" placeholder="YYYY" required="required">
-      </form>
+<div id="create" class="container" ng-controller="createController as create">
+  <div id="createStatus">
+    <ul>
+      <li class="createStatusIcons"><a id="createStatusIconsUpload" ng-click="create.switchStatus('upload')">&nbsp;</a></li>
+      <li class="createStatusIcons"><a id="createStatusIconsCrop" ng-click="create.switchStatus('crop')">&nbsp;</a></li>
+      <li class="createStatusIcons"><a id="createStatusIconsFilter" ng-click="create.switchStatus('filter')">&nbsp;</a></li>
+      <li class="createStatusIcons"><a id="createStatusIconsInfo" ng-click="create.switchStatus('info')">&nbsp;</a></li>
+      <li class="createStatusIcons"><a id="createStatusIconsPublish" ng-click="create.switchStatus('publish')">&nbsp;</a></li>
+    </ul>
+      <div id="createStatusArrow"><span>&nbsp;</span></div>
+  </div>
+  <div id="createCanvas">
+    <div id="createCanvasUpload">
+      <a id="createCanvasUploadClose" ng-click="create.switchStatus('upload')" href="#" class="hidden-all">&nbsp;</a>
+      <div id="createCanvasUploadDrop" createtrip>
+        <img id="createCanvasUploadImg" src="img/icons/create_placeholder.png" placeholder="img/icons/create_placeholder.png" />
+      </div>
+      <span>DRAG PHOTO HERE</span>
+      <a id="createCanvasUploadBrowse" ng-click="create.browseImages()" href="#" title="Browse..">&nbsp;</a>
     </div>
   </div>
 
+  <div id="createInsert" class="hidden-all">
+    <form class="form-signin">
+      <label for="country">Country</label>
+      <select type="text" placeholder="" required="required">
+        <option value="Italy">Italy</option>
+        <option value="France">France</option>
+      </select>
+      <label for="month">Month</label>
+      <select type="month" placeholder="" required="required">
+        <option value="January">January</option>
+        <option value="February">February</option>
+      </select>
+      <label for="year">Year</label>
+      <input type="number" min="1900" max="2100" placeholder="2014" required="required">
+      <label for="hashtags">Hashtags (up to 5)</label>
+      <input type="hashtags" placeholder="#">
+    </form>
+  </div>
+
   <div id="createControls">
-      <div id="createControlsLeft">
-        &nbsp;
-      </div>
-      <div id="createControlsRight">
-        <a id="createControlsRightBack" href="#">&nbsp;</a>
-        <a id="createControlsRightGallery" href="#">&nbsp;</a>
-        <a id="createControlsRightForward" href="#">&nbsp;</a>
-      </div>
+    <div class="createControls" id="createControls-upload">
+      &nbsp;
+    </div>
+    <div class="createControls hidden-all" id="createControls-crop">
+      <div id="createControlsBack"><a ng-click="create.switchStatus('upload')" href="#">&nbsp;</a></div>
+      <div id="createControlsForward"><a ng-click="create.switchStatus('filter')" href="#">&nbsp;</a></div>
+    </div>
+    <div class="createControls hidden-all" id="createControls-filter">
+      <div id="createControlsBack"><a ng-click="create.switchStatus('crop')" href="#">&nbsp;</a></div>
+      <div id="createControlsForward"><a ng-click="create.switchStatus('info')" href="#">&nbsp;</a></div>
+    </div>
+    <div class="createControls hidden-all" id="createControls-info">
+      <div id="createControlsBack"><a ng-click="create.switchStatus('filter')" href="#">&nbsp;</a></div>
+      <div id="createControlsForward"><a ng-click="create.switchStatus('publish')" href="#">&nbsp;</a></div>
+    </div>
+    <div class="createControls hidden-all" id="createControls-publish">
+      <div id="createControlsBack"><a ng-click="create.switchStatus('info')" href="#">&nbsp;</a></div>
+      <div id="createControlsForward"><a ng-click="create.switchStatus('submit')" href="#">&nbsp;</a></div>
+    </div>
   </div>
 </div>

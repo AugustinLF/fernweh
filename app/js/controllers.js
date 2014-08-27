@@ -88,4 +88,61 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
   .controller('navController', function() {
 
+  })
+
+  // Handle the status of the create process TO DO
+  .controller('createController', function(){
+    var create = this;
+    var lastStatus;
+
+    // Alternative to the drag and drop feature
+    this.browseImages = function(){
+
+    }
+
+    // Used on click to display more trips
+     this.switchStatus = function(status) {
+
+      $('#createInsert').slideUp(500);
+
+
+      switch(status) {
+        case 'upload':
+          $('#createCanvasUploadImg').attr('src', $('#createCanvasUploadImg').attr('placeholder') );
+          $('#createCanvasUpload span, #createCanvasUpload #createCanvasUploadBrowse').show();
+          $('#createCanvasUploadClose').hide();
+
+          break;
+        case 'crop':
+
+          break;
+        case 'filter':
+
+          break;
+        case 'info':
+          $('#createInsert').slideDown(500);
+          $('html, body').animate({
+            scrollTop: $("#createInsert").offset().top
+          }, 500);
+
+          break;
+        case 'publish':
+          $('html, body').animate({
+            scrollTop: $("#create").offset().top
+          }, 500);
+
+          break;
+        case 'submit':
+          /* actually submit the trip */
+
+          break;
+      }
+          
+      $('#createStatus #createStatusArrow').removeClass().addClass(status);
+      $('#createControls .createControls').hide();
+      $('#createControls #createControls-'+status).show();
+
+
+
+    };
   });
