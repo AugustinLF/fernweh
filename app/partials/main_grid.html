@@ -1,4 +1,4 @@
-<main id="grid" ng-controller="gridController as grid" class="container">
+<main id="grid" class="container" ng-controller="gridController as grid">
   <div id="itemContainer" id="isotopeContainer" isotope-container ng-cloak>
 
     <div class="item {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="itemController as item" isotope-item>
@@ -32,6 +32,8 @@
     </div>
 
   </div>
+
+  <div class="loading">&nbsp;</div>
 
   <mainfooter>
     <div>
