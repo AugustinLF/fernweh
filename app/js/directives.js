@@ -26,7 +26,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
 
   // Fixes browser bug: https://groups.google.com/forum/#!topic/angular/6NlucSskQjY
   .directive('formAutofillFix', function() {
-    return function(scope, elem, attrs) {s
+    return function(scope, elem, attrs) {
       elem.prop('method', 'POST');
    
       // Fix autofill issues where Angular doesn't know about autofilled inputs
@@ -43,9 +43,9 @@ angular.module('photoAppDirectives', ['iso.directives'])
   })
 
 /*Angular Image drag and drop/upload directive */
-  .directive("createtrip", function ($parse) {
+  .directive('createtrip', function ($parse) {
     return {
-        restrict: "EA",
+        restrict: 'EA',
         link: function (scope, element, attrs) {
             //The on-image-drop event attribute
             var onImageDrop = $parse(attrs.onImageDrop);
@@ -53,13 +53,13 @@ angular.module('photoAppDirectives', ['iso.directives'])
             //When an item is dragged over the document, add .dragOver to the dropelement
             var onDragOver = function (e) {
                 e.preventDefault();
-                element.addClass("dragOver");
+                element.addClass('dragOver');
             };
 
             //When the user leaves the dropelement, cancels the drag or drops the item
             var onDragEnd = function (e) {
                 e.preventDefault();
-                element.removeClass("dragOver");
+                element.removeClass('dragOver');
             };
 
             //When a file is dropped on the overlay
@@ -87,11 +87,11 @@ angular.module('photoAppDirectives', ['iso.directives'])
             };
 
             //Dragging begins on the document (shows the overlay)
-            element.bind("dragover", onDragOver);
+            element.bind('dragover', onDragOver);
 
             //Dragging ends on the overlay, which takes the whole window
-            element.bind("dragleave", onDragEnd)
-                   .bind("drop", function (e) {
+            element.bind('dragleave', onDragEnd)
+                   .bind('drop', function (e) {
                        onDragEnd(e);
                        loadFile(e.originalEvent.dataTransfer.files[0]); /* This is the file */
                    });

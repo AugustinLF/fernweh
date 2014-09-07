@@ -92,8 +92,6 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
   // Handle the status of the create process TO DO
   .controller('createController', function(){
-    var create = this;
-    var lastStatus;
 
     // Alternative to the drag and drop feature
     this.browseImages = function(){
@@ -104,7 +102,6 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
      this.switchStatus = function(status) {
 
       $('#createInsert').slideUp(500);
-
 
       switch(status) {
         case 'upload':
@@ -137,7 +134,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
           break;
       }
-          
+
       $('#createStatus #createStatusArrow').removeClass().addClass(status);
       $('#createControls .createControls').hide();
       $('#createControls #createControls-'+status).show();
