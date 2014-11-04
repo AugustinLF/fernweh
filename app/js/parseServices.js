@@ -73,8 +73,7 @@ angular.module('parseServices', [])
     this.uploadATrip = function(userId, pictureFile, filter, hashtags, country, month, year) {
       var Trip = Parse.Object.extend('Trip'),
         trip = new Trip(),
-        i,
-        numHashtag;
+        i;
 
       var parseFile = new Parse.File('trip.png', pictureFile);
 

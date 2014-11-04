@@ -110,7 +110,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
     // Alternative to the drag and drop feature
     this.browseImages = function(){
 
-    }
+    };
 
     // The controls at the bottom are hidden as long a picture is not uploaded
     // Contained isUploaded & status
@@ -122,7 +122,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
       this.data.status = 'upload';
       this.data.isUploaded = false;
       createBinding.resetImage();
-    }
+    };
 
     // The status defines where we are in the create section (upload, crop, filter, info or publish)
 
@@ -134,7 +134,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
 
     this.isSetsStatus = function(statusName) {
       return this.data.status === statusName;
-    }
+    };
 
     // Activated when clicked on the previous control. Cycles back through the status
     this.goToPreviousStatus = function() {

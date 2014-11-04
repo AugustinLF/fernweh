@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module('bindingServices', [])
   .factory('CreateBindingService', function() {
     var defaultPlaceholder = 'img/icons/create_placeholder.png';

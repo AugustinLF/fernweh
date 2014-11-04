@@ -48,7 +48,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
         restrict: 'EA',
         link: function (scope, element, attrs) {
           //The on-image-drop event attribute
-          var onImageDrop = $parse(attrs.onImageDrop);
+          //var onImageDrop = $parse(attrs.onImageDrop);
 
           //When an item is dragged over the document, add .dragOver to the dropelement
           var onDragOver = function (e) {
@@ -73,8 +73,8 @@ angular.module('photoAppDirectives', ['iso.directives'])
               }
                 /* Might be useful for some checks */
                 var fileSrc;
-                var fileSize = file.size;
-                var fileName = file.name;
+                //var fileSize = file.size;
+                //var fileName = file.name;
 
               readFile(file, function(e, file){
                 fileSrc = e.target.result;
