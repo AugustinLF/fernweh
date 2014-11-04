@@ -105,55 +105,84 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
   })
 
   // Handle the status of the create process TO DO
-  .controller('createController', function(){
+  .controller('createController',  ['CreateBindingService', function(createBinding) {
 
     // Alternative to the drag and drop feature
     this.browseImages = function(){
 
     }
 
-    // Used on click to display more trips
-     this.switchStatus = function(status) {
+    // The controls at the bottom are hidden as long a picture is not uploaded
+    // Contained isUploaded & status
+    this.data = createBinding.data;
 
-      $('#createInsert').slideUp(500);
+    this.info = {};
 
-      switch(status) {
+    this.resetInterface = function() {
+      this.data.status = 'upload';
+      this.data.isUploaded = false;
+      createBinding.resetImage();
+    }
+
+    // The status defines where we are in the create section (upload, crop, filter, info or publish)
+
+    this.setStatus = function(status) {
+      if(this.data.isUploaded !== false) {
+        this.data.status = status;
+      }
+    };
+
+    this.isSetsStatus = function(statusName) {
+      return this.data.status === statusName;
+    }
+
+    // Activated when clicked on the previous control. Cycles back through the status
+    this.goToPreviousStatus = function() {
+      switch(this.data.status) {
         case 'upload':
-          $('#createCanvasUploadImg').attr('src', $('#createCanvasUploadImg').attr('placeholder') );
-          $('#createCanvasUpload span, #createCanvasUpload #createCanvasUploadBrowse').show();
-          $('#createCanvasUploadClose').hide();
-
+          this.setStatus('publish');
           break;
+
         case 'crop':
-
+          this.setStatus('upload');
           break;
+
         case 'filter':
-
+          this.setStatus('crop');
           break;
+
         case 'info':
-          $('#createInsert').slideDown(500);
-          $('html, body').animate({
-            scrollTop: $("#createInsert").offset().top
-          }, 500);
-
+          this.setStatus('filter');
           break;
+
         case 'publish':
-          $('html, body').animate({
-            scrollTop: $("#create").offset().top
-          }, 500);
-
-          break;
-        case 'submit':
-          /* actually submit the trip */
-
+          this.setStatus('info');
           break;
       }
-
-      $('#createStatus #createStatusArrow').removeClass().addClass(status);
-      $('#createControls .createControls').hide();
-      $('#createControls #createControls-'+status).show();
-
-
-
     };
-  });
+
+  // Activated when clicked on the next control. Cycles through the status
+    this.goToNextStatus = function() {
+      switch(this.data.status) {
+        case 'upload':
+          this.setStatus('crop');
+          break;
+
+        case 'crop':
+          this.setStatus('filter');
+          break;
+
+        case 'filter':
+          this.setStatus('info');
+          break;
+
+        case 'info':
+          this.setStatus('publish');
+          break;
+
+        case 'publish':
+          this.setStatus('upload');
+          break;
+      }
+    };
+  }]);

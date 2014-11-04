@@ -43,58 +43,59 @@ angular.module('photoAppDirectives', ['iso.directives'])
   })
 
 /*Angular Image drag and drop/upload directive */
-  .directive('createtrip', function ($parse) {
+  .directive('createtrip', ['$parse', 'CreateBindingService', function ($parse, createBinding) {
     return {
         restrict: 'EA',
         link: function (scope, element, attrs) {
-            //The on-image-drop event attribute
-            var onImageDrop = $parse(attrs.onImageDrop);
+          //The on-image-drop event attribute
+          var onImageDrop = $parse(attrs.onImageDrop);
 
-            //When an item is dragged over the document, add .dragOver to the dropelement
-            var onDragOver = function (e) {
-                e.preventDefault();
-                element.addClass('dragOver');
-            };
+          //When an item is dragged over the document, add .dragOver to the dropelement
+          var onDragOver = function (e) {
+              e.preventDefault();
+              element.addClass('dragOver');
+          };
 
-            //When the user leaves the dropelement, cancels the drag or drops the item
-            var onDragEnd = function (e) {
-                e.preventDefault();
-                element.removeClass('dragOver');
-            };
+          //When the user leaves the dropelement, cancels the drag or drops the item
+          var onDragEnd = function (e) {
+              e.preventDefault();
+              element.removeClass('dragOver');
+          };
 
-            //When a file is dropped on the overlay
-            var loadFile = function (file) {
-                //scope.uploadedFile = file; //if needed in another scope!
-                
-                /* DO SMTH WITH THE FILE */
-                function readFile(file, onLoadCallback) {
-                  var reader = new FileReader();
-                  reader.onload = onLoadCallback;
-                  return reader.readAsDataURL(file);
-                }
-                  /* Might be useful for some checks */
-                  var fileSrc;
-                  var fileSize = file.size;
-                  var fileName = file.name;
+          //When a file is dropped on the overlay
+          var loadFile = function (file) {
+              
+              
+              function readFile(file, onLoadCallback) {
+                var reader = new FileReader();
+                reader.onload = onLoadCallback;
+                return reader.readAsDataURL(file);
+              }
+                /* Might be useful for some checks */
+                var fileSrc;
+                var fileSize = file.size;
+                var fileName = file.name;
 
-                readFile(file, function(e, file){
-                  fileSrc = e.target.result;
-                  $('#createCanvasUploadImg').attr('src', fileSrc);
-                  $('#createCanvasUpload span, #createCanvasUpload #createCanvasUploadBrowse').hide();
-                  $('#createCanvasUploadClose, #createControls-crop').removeClass('hidden-all');
-                  $('#createStatus #createStatusArrow').removeClass().addClass('crop');
+              readFile(file, function(e, file){
+                fileSrc = e.target.result;
+
+                scope.$apply(function() {
+                  createBinding.data.isUploaded = true;
+                  createBinding.data.status = 'crop';
+                  createBinding.data.image = fileSrc;
                 });
-            };
+              });
+          };
 
-            //Dragging begins on the document (shows the overlay)
-            element.bind('dragover', onDragOver);
+          //Dragging begins on the document (shows the overlay)
+          element.bind('dragover', onDragOver);
 
-            //Dragging ends on the overlay, which takes the whole window
-            element.bind('dragleave', onDragEnd)
-                   .bind('drop', function (e) {
-                       onDragEnd(e);
-                       loadFile(e.originalEvent.dataTransfer.files[0]); /* This is the file */
-                   });
+          //Dragging ends on the overlay, which takes the whole window
+          element.bind('dragleave', onDragEnd)
+            .bind('drop', function (e) {
+               onDragEnd(e);
+               loadFile(e.originalEvent.dataTransfer.files[0]); /* This is the file */
+            });
         }
     };
-  });
+  }]);
