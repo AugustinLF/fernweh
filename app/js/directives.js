@@ -76,6 +76,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
                 //var fileSize = file.size;
                 //var fileName = file.name;
 
+              // We get the file
               readFile(file, function(e, file){
                 fileSrc = e.target.result;
 
@@ -94,7 +95,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
           element.bind('dragleave', onDragEnd)
             .bind('drop', function (e) {
                onDragEnd(e);
-               loadFile(e.originalEvent.dataTransfer.files[0]); /* This is the file */
+               loadFile(e.originalEvent.dataTransfer.files[0]);
             });
         }
     };

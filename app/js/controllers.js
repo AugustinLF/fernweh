@@ -132,9 +132,13 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
       }
     };
 
-    this.isSetsStatus = function(statusName) {
+    this.isSetStatus = function(statusName) {
       return this.data.status === statusName;
     };
+
+    this.publish = function() {
+      
+    }
 
     // Activated when clicked on the previous control. Cycles back through the status
     this.goToPreviousStatus = function() {

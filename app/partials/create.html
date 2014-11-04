@@ -25,7 +25,7 @@
     <div id="createControlsForward"><a ng-click="create.goToNextStatus()" href="#">&nbsp;</a></div>
   </div>
 
-  <div id="createInsert" ng-show="create.isSetsStatus('info')">
+  <div id="createInsert" ng-show="create.isSetStatus('info')">
     <form class="form-signin">
       <label for="country">Country</label>
       <select type="text" ng-model="create.info.country" required="required">
@@ -43,4 +43,12 @@
       <input type="hashtags" placeholder="#" ng-model="create.info.hashtags">
     </form>
   </div>
+
+  <div ng-show="create.isSetStatus('publish')">
+    <p>{{create.info.country || 'You need to pick a country'}}</p>
+    <p>{{create.info.month || 'You need to pick a month'}}</p>
+    <p>{{create.info.year || 'You need to pick a year'}}</p>
+    <p>{{create.info.hashtags || 'You did not pick any hashtag'}}</p>
+  </div>
+  <button ng-show="create.isSetStatus('publish')" ng-click="create.publish()"></button>
 </div>
