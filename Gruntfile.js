@@ -29,6 +29,14 @@ module.exports = function( grunt ) {
       }
     },
 
+    'sass': {
+      dist: {
+        files: {
+          'app/css/style.css': 'app/css-sources/style.scss'
+        }
+      }
+    },
+
     'http-server': {
         // the server root directory
         root: 'app/index.html',
@@ -49,6 +57,7 @@ module.exports = function( grunt ) {
   // Each plugin must be loaded following this pattern
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask( 'default', ['jshint'] );
 };

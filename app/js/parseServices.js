@@ -8,7 +8,7 @@ angular.module('parseServices', [])
   })
 
   // Services providing an interface to the Parse user services
-  .service('parseUserServices', function($q) {
+  .service('ParseUserServices', function($q) {
 
     // Creates a user with an input of an email/password, and returns a promise
     this.createUser = function(email, password) {
@@ -60,7 +60,7 @@ angular.module('parseServices', [])
   })
 
 
-  .service('parseTripService', function() {
+  .service('ParseTripService', function() {
 
     // Upload a trip (picture + info)
     // @param User ID
@@ -75,7 +75,7 @@ angular.module('parseServices', [])
         trip = new Trip(),
         i;
 
-      var parseFile = new Parse.File('trip.png', pictureFile);
+      var parseFile = new Parse.File('trip.png', { base64: pictureFile });
 
       parseFile.save().then(function() {
         trip.set('userId', userId);

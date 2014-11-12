@@ -1,9 +1,9 @@
 /* global angular */
 
-angular.module('photoAppControllers', ['ui.router', 'parseServices'])
+angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingServices'])
 
   // Handle the registration process by creating a new user through Parse
-  .controller('signUpController', function($state, parseUserServices) {
+  .controller('signUpController', ['$state', 'ParseUserServices', function($state, parseUserServices) {
     // Initialiases the model of the form
     this.user = {};
 
@@ -20,9 +20,9 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
       // We reinitialise the user model in case of letter use of the sign up form
       this.user = {};
     };
-  })
+  }])
 
-  .controller('testUploadController', function(parseTripService, parseUserServices) {
+  /*.controller('testUploadController', function(parseTripService, parseUserServices) {
     this.submit = function() {
       parseTripService.uploadATrip(
         parseUserServices.getCurrentUser().id,
@@ -34,7 +34,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
         2014
         );
     };
-  })
+  })*/
 
   // Handle the display of the trips
   .controller('gridController', [ '$http', function($http){
@@ -57,7 +57,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
   }])
 
   // Handles the display of the view in the index, if the user should see the login view or the home
-  .controller('indexController', function($state, parseUserServices) {
+  .controller('indexController', ['$state', 'ParseUserServices', function($state, parseUserServices) {
     if (parseUserServices.getCurrentUser()) {
       $state.go('connected.feed');
     } else {
@@ -69,10 +69,10 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
       parseUserServices.logOut();
       $state.go('notConnected');
     };
-  })
+  }])
 
   // Controller of the sign in form
-  .controller('signInController', function($state, parseUserServices) {
+  .controller('signInController', ['$state', 'ParseUserServices', function($state, parseUserServices) {
     this.user = {};
 
     // Activated when the users validates the form
@@ -85,14 +85,13 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
         alert('Error: ' + error.code + ' ' + error.message);
       });
     };
-  })
+  }])
 
   // Controller instanciated for each item (trip)
   .controller('itemController', function() {
     this.isSrc = 'load';
     this.setSrc = function(setSrc) {
       this.isSrc = setSrc;
-      /*$('#itemContainer').isotope('layout');*/
     };
 
     this.followUser = function(status, username) {
@@ -105,7 +104,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
   })
 
   // Handle the status of the create process TO DO
-  .controller('createController',  ['CreateBindingService', function(createBinding) {
+  .controller('createController',  ['CreateBindingService', 'ParseUserServices', 'ParseTripService', function(createBinding, parseUserServices, parseTripService) {
 
     // Alternative to the drag and drop feature
     this.browseImages = function(){
@@ -137,7 +136,18 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices'])
     };
 
     this.publish = function() {
-      
+      if(true)  // Validation of the content
+      {
+        parseTripService.uploadATrip(
+          parseUserServices.getCurrentUser().id,
+          createBinding.data.image,
+          'None',
+          [createBinding.data.hashtags],
+          createBinding.data.country,
+          createBinding.data.month,
+          createBinding.data.year
+          );
+      }
     }
 
     // Activated when clicked on the previous control. Cycles back through the status

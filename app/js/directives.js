@@ -64,8 +64,6 @@ angular.module('photoAppDirectives', ['iso.directives'])
 
           //When a file is dropped on the overlay
           var loadFile = function (file) {
-              
-              
               function readFile(file, onLoadCallback) {
                 var reader = new FileReader();
                 reader.onload = onLoadCallback;
@@ -77,7 +75,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
                 //var fileName = file.name;
 
               // We get the file
-              readFile(file, function(e, file){
+              readFile(file, function(e, file) {
                 fileSrc = e.target.result;
 
                 scope.$apply(function() {
