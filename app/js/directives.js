@@ -75,7 +75,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
                 //var fileName = file.name;
 
               // We get the file
-              readFile(file, function(e, file) {
+              readFile(file, function(e, file){
                 fileSrc = e.target.result;
 
                 scope.$apply(function() {
@@ -93,7 +93,7 @@ angular.module('photoAppDirectives', ['iso.directives'])
           element.bind('dragleave', onDragEnd)
             .bind('drop', function (e) {
                onDragEnd(e);
-               loadFile(e.originalEvent.dataTransfer.files[0]);
+               loadFile(e.originalEvent.dataTransfer.files[0]); /* This is the file */
             });
         }
     };

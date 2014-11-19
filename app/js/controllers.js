@@ -131,7 +131,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
       }
     };
 
-    this.isSetStatus = function(statusName) {
+    this.isSetsStatus = function(statusName) {
       return this.data.status === statusName;
     };
 
