@@ -74,7 +74,6 @@ angular.module('photoAppDirectives', ['iso.directives'])
                 //var fileSize = file.size;
                 //var fileName = file.name;
 
-              // We get the file
               readFile(file, function(e, file){
                 fileSrc = e.target.result;
 

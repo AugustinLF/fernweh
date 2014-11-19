@@ -149,7 +149,6 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
           );
       }
     }
-
     // Activated when clicked on the previous control. Cycles back through the status
     this.goToPreviousStatus = function() {
       switch(this.data.status) {
