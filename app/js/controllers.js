@@ -107,7 +107,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
   .controller('createController',  ['CreateBindingService', 'ParseUserServices', 'ParseTripService', function(createBinding, parseUserServices, parseTripService) {
 
     // Alternative to the drag and drop feature
-    this.browseImages = function(){
+    this.browseImages = function() {
 
     };
 
@@ -124,7 +124,6 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
     };
 
     // The status defines where we are in the create section (upload, crop, filter, info or publish)
-
     this.setStatus = function(status) {
       if(this.data.isUploaded !== false) {
         this.data.status = status;
@@ -133,6 +132,37 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
 
     this.isSetsStatus = function(statusName) {
       return this.data.status === statusName;
+    };
+
+    this.applyFilter = function(filterName) {
+      Caman("#createCanvasUploadImg", function () {
+        this.revert();
+        switch(filterName) {
+          case 'Vintage':
+            this.greyscale();
+            this.contrast(5);
+            this.noise(3);
+            this.sepia(100);
+            this.channels({
+              red: 8,
+              green: 2,
+              blue: 4
+            });
+            this.gamma(0.87);
+            this.render();
+            break;
+
+          case 'Sin City':
+            this.contrast(100);
+            this.brightness(15);
+            this.exposure(10);
+            this.posterize(80);
+            this.clip(30);
+            this.greyscale();
+            break;
+        };
+        this.render();
+      });
     };
 
     this.publish = function() {
