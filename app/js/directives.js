@@ -78,9 +78,10 @@ angular.module('photoAppDirectives', ['iso.directives'])
                 fileSrc = e.target.result;
 
                 scope.$apply(function() {
-                  createBinding.data.isUploaded = true;
+                  /*createBinding.data.isUploaded = true;
                   createBinding.data.status = 'crop';
-                  createBinding.data.image = fileSrc;
+                  createBinding.data.image = fileSrc;*/
+                  createBinding.uploadImage(fileSrc);
                 });
               });
           };

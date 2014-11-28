@@ -22,20 +22,6 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
     };
   }])
 
-  /*.controller('testUploadController', function(parseTripService, parseUserServices) {
-    this.submit = function() {
-      parseTripService.uploadATrip(
-        parseUserServices.getCurrentUser().id,
-        undefined,
-        'None',
-        ['#Awesome', '#Pro', '#Brrra', '#lol'],
-        'Italy',
-        'August',
-        2014
-        );
-    };
-  })*/
-
   // Handle the display of the trips
   .controller('gridController', [ '$http', function($http){
     var grid = this;
@@ -103,9 +89,8 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
 
   })
 
-  // Handle the status of the create process TO DO
-  .controller('createController',  ['CreateBindingService', 'ParseUserServices', 'ParseTripService', function(createBinding, parseUserServices, parseTripService) {
-
+  // Handle the status of the create process
+  .controller('createController',  ['CreateBindingService', 'ParseUserServices', 'ParseTripService', '$scope', function(createBinding, parseUserServices, parseTripService, $scope) {
     // Alternative to the drag and drop feature
     this.browseImages = function() {
 
@@ -113,9 +98,17 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
 
     // The controls at the bottom are hidden as long a picture is not uploaded
     // Contained isUploaded & status
+
+    createBinding.uploadImage = function(fileSrc) {
+      this.data.isUploaded = true;
+      this.setStatus('crop');
+      this.data.image = fileSrc;
+    };
+
     this.data = createBinding.data;
 
     this.info = {};
+    this.isCanvas = false;
 
     this.resetInterface = function() {
       this.data.status = 'upload';
@@ -125,17 +118,19 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
 
     // The status defines where we are in the create section (upload, crop, filter, info or publish)
     this.setStatus = function(status) {
-      if(this.data.isUploaded !== false) {
+      if(this.data.isUploaded === true) { // We can change the status only if a picture has been uploaded
         this.data.status = status;
       }
     };
+
+    createBinding.setStatus = this.setStatus.bind(this);
 
     this.isSetsStatus = function(statusName) {
       return this.data.status === statusName;
     };
 
     this.applyFilter = function(filterName) {
-      Caman("#createCanvasUploadImg", function () {
+      Caman('#createCanvasUploadCanvas', this.data.image, function() {
         this.revert();
         switch(filterName) {
           case 'Vintage':
@@ -149,7 +144,6 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
               blue: 4
             });
             this.gamma(0.87);
-            this.render();
             break;
 
           case 'Sin City':
@@ -161,8 +155,13 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
             this.greyscale();
             break;
         };
-        this.render();
+        this.render(function() {
+          $scope.$apply(function() {
+            createBinding.data.image = this.toBase64();
+          }.bind(this));
+        });
       });
+      this.isCanvas = false;
     };
 
     this.publish = function() {

@@ -13,7 +13,8 @@
     <div id="createCanvasUpload">
       <a id="createCanvasUploadClose" ng-click="create.resetInterface()" href="#" ng-show="create.data.isUploaded">&nbsp;</a>
       <div id="createCanvasUploadDrop" createtrip>
-        <img id="createCanvasUploadImg" ng-src="{{create.data.image}}" placeholder="img/icons/create_placeholder.png" />
+        <img id="createCanvasUploadImg" ng-src="{{create.data.image}}" ng-hide="create.isCanvas" placeholder="img/icons/create_placeholder.png" />
+        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"/>
       </div>
       <span>DRAG PHOTO HERE</span>
       <a id="createCanvasUploadBrowse" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">&nbsp;</a>
@@ -25,17 +26,29 @@
     <div id="createControlsForward"><a ng-click="create.goToNextStatus()" href="#">&nbsp;</a></div>
   </div>
 
-  <div class="createDisplay" ng-show="create.isSetsStatus('publish')">
-    <p>{{create.info.country}}</p>
-    <p>{{create.info.month}} {{create.info.year}}</p>
-    <p>{{create.info.hashtags}}</p>
-    <button ng-click="create.publish()">Upload</button>
-  </div>
-
   <div id="createFilter" ng-show="create.isSetsStatus('filter')">
     <form>
       <button ng-click="create.applyFilter('Vintage')">Vintage</button>
       <button ng-click="create.applyFilter('Sin City')">Sin City</button>
+    </form>
+  </div>
+
+  <div id="createInsert" ng-show="create.isSetsStatus('info')">
+    <form class="form-signin">
+      <label for="country">Country</label>
+      <select type="text" ng-model="create.info.country" required="required">
+        <option value="Italy">Italy</option>
+        <option value="France">France</option>
+      </select>
+      <label for="month">Month</label>
+      <select type="month" ng-model="create.info.month" required="required">
+        <option value="January">January</option>
+        <option value="February">February</option>
+      </select>
+      <label for="year">Year</label>
+      <input type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
+      <label for="hashtags">Hashtags (up to 5)</label>
+      <input type="hashtags" placeholder="#" ng-model="create.info.hashtags">
     </form>
   </div>
 

@@ -3,9 +3,9 @@
 angular.module('photoApp', [
     'ui.router',
     'photoAppControllers',
+    'bindingServices',
     'photoAppDirectives',
-    'parseServices',
-    'bindingServices'
+    'parseServices'
   ])
 
   .config(['$stateProvider', function($stateProvider) {
