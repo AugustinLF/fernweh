@@ -99,21 +99,36 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
     // The controls at the bottom are hidden as long a picture is not uploaded
     // Contained isUploaded & status
 
+    // Can only updates values shared in this.data (we are in createBinding, not in the controller)
     createBinding.uploadImage = function(fileSrc) {
       this.data.isUploaded = true;
-      this.setStatus('crop');
       this.data.image = fileSrc;
+      var img = new Image();
+      img.onload = function () {
+        $scope.$apply(function() {
+          this.data.width = img.width;
+          this.data.height = img.height;
+        }.bind(this));
+      }.bind(this);
+      img.src = this.data.image;
+      this.setStatus('crop');
     };
 
     this.data = createBinding.data;
 
     this.info = {};
+    this.crop = {};
     this.isCanvas = false;
 
+    // Used to delete all the work. Goes back to the upload state and delete all the infos
     this.resetInterface = function() {
+      //console.log(this);
       this.data.status = 'upload';
+      this.info = {};
+      this.crop = {};
+      this.isCanvas = false;
       this.data.isUploaded = false;
-      createBinding.resetImage();
+      createBinding.data.resetImage();
     };
 
     // The status defines where we are in the create section (upload, crop, filter, info or publish)
@@ -121,12 +136,26 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
       if(this.data.isUploaded === true) { // We can change the status only if a picture has been uploaded
         this.data.status = status;
       }
+
+      if(status === 'crop') {
+        this.isCanvas = true;
+        Caman('#createCanvasUploadCanvas', this.data.image, function() {
+          this.brightness(0).render();
+        });
+      }
     };
 
     createBinding.setStatus = this.setStatus.bind(this);
 
     this.isSetsStatus = function(statusName) {
       return this.data.status === statusName;
+    };
+
+    this.crop = function() {
+      var controller = this;
+      Caman('#createCanvasUploadCanvas', this.data.image, function() {
+        this.crop(controller.crop.width, controller.crop.height, controller.crop.x, controller.crop.y).render();
+      });
     };
 
     this.applyFilter = function(filterName) {
@@ -165,8 +194,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
     };
 
     this.publish = function() {
-      if(true)  // Validation of the content
-      {
+      if(true) {  // Validation of the content
         parseTripService.uploadATrip(
           parseUserServices.getCurrentUser().id,
           createBinding.data.image,

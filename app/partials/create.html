@@ -14,7 +14,7 @@
       <a id="createCanvasUploadClose" ng-click="create.resetInterface()" href="#" ng-show="create.data.isUploaded">&nbsp;</a>
       <div id="createCanvasUploadDrop" createtrip>
         <img id="createCanvasUploadImg" ng-src="{{create.data.image}}" ng-hide="create.isCanvas" placeholder="img/icons/create_placeholder.png" />
-        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"/>
+        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"></canvas>
       </div>
       <span>DRAG PHOTO HERE</span>
       <a id="createCanvasUploadBrowse" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">&nbsp;</a>
@@ -24,6 +24,20 @@
   <div id="createControls" ng-show="create.data.isUploaded">
     <div id="createControlsBack"><a ng-click="create.goToPreviousStatus()" href="#">&nbsp;</a></div>
     <div id="createControlsForward"><a ng-click="create.goToNextStatus()" href="#">&nbsp;</a></div>
+  </div>
+
+  <div id="createCrop" ng-show="create.isSetsStatus('crop')">
+    <form class="form-signin">
+      <label>inputWidth max: {{create.data.width}}</label>
+      <input type="number" placeholder="0" required="required" ng-model= "create.crop.width">
+      <label>inputHeight max: {{create.data.height}}</label>
+      <input type="number" placeholder="0" ng-model="create.crop.height">
+      <label>inputX</label>
+      <input type="number" placeholder="0" ng-model="create.crop.x">
+      <label>inputY</label>
+      <input type="number" placeholder="0" ng-model="create.crop.y">
+      <button ng-click="create.crop()">Crop!</button>
+    </form>
   </div>
 
   <div id="createFilter" ng-show="create.isSetsStatus('filter')">
