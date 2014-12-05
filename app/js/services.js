@@ -12,7 +12,7 @@ angular.module('bindingServices', [])
 
     function resetImage() {
       data.image = defaultPlaceholder;
-    };
+    }
 
     return {
       data: data

@@ -1,4 +1,4 @@
-/* global angular */
+/* global angular, Caman */
 
 angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingServices'])
 
@@ -183,7 +183,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
             this.clip(30);
             this.greyscale();
             break;
-        };
+        }
         this.render(function() {
           $scope.$apply(function() {
             createBinding.data.image = this.toBase64();
@@ -205,7 +205,8 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
           createBinding.data.year
           );
       }
-    }
+    };
+    
     // Activated when clicked on the previous control. Cycles back through the status
     this.goToPreviousStatus = function() {
       switch(this.data.status) {
