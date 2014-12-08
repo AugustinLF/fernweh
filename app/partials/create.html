@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-<div id="create" class="container" ng-controller="createController as create">
-  <div id="createStatus">
-    <ul>
-      <li class="createStatusIcons"><a id="createStatusIconsUpload" ng-click="create.setStatus('upload')">&nbsp;</a></li>
-      <li class="createStatusIcons"><a id="createStatusIconsCrop" ng-click="create.setStatus('crop')">&nbsp;</a></li>
-      <li class="createStatusIcons"><a id="createStatusIconsFilter" ng-click="create.setStatus('filter')">&nbsp;</a></li>
-      <li class="createStatusIcons"><a id="createStatusIconsInfo" ng-click="create.setStatus('info')">&nbsp;</a></li>
-      <li class="createStatusIcons"><a id="createStatusIconsPublish" ng-click="create.setStatus('publish')">&nbsp;</a></li>
-    </ul>
-      <div id="createStatusArrow" class="createStatusArrow" ng-class="create.data.status"><span>&nbsp;</span></div>
-  </div>
-  <div id="createCanvas">
-    <div id="createCanvasUpload">
-      <a id="createCanvasUploadClose" ng-click="create.resetInterface()" href="#" ng-show="create.data.isUploaded">&nbsp;</a>
-      <div id="createCanvasUploadDrop" createtrip>
-        <img id="createCanvasUploadImg" ng-src="{{create.data.image}}" ng-hide="create.isCanvas" placeholder="img/icons/create_placeholder.png" />
-        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"></canvas>
-=======
 <div id="create" ng-controller="createController as create">
   <div class="page-container">
     <div class="create-status">
@@ -59,6 +40,7 @@
       </ul>
         <div class="create-status-arrow" ng-class="create.data.status"><span>&nbsp;</span></div>
     </div>
+    
     <div class="create-canvas">
       <a href="#" class="create-canvas-close icon-link" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
         <svg viewBox="0 0 100 100" class="icon-small icon-stop">
@@ -68,8 +50,8 @@
 
       <div class="create-canvas-drop" createtrip>
         <span class="create-canvas-text text-headline" ng-show="!create.data.isUploaded">DRAG PHOTO HERE</span>
-        <img id="createCanvasUploadImg" class="create-canvas-img" ng-class="{'placeholder': !create.data.isUploaded}" ng-src="{{create.data.image}}" placeholder="img/icons/create_placeholder.png" />
->>>>>>> #34
+        <img id="createCanvasUploadImg" class="create-canvas-img" ng-class="{'placeholder': !create.data.isUploaded}" ng-hide="create.isCanvas" ng-src="{{create.data.image}}" placeholder="img/icons/create_placeholder.png" />
+        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"></canvas>
       </div>
 
       <a href="#" class="create-canvas-browse icon-link" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">
@@ -96,28 +78,19 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-  <div id="createCrop" ng-show="create.isSetsStatus('crop')">
-    <form class="form-signin">
-      <label>inputWidth max: {{create.data.width}}</label>
-      <input type="number" placeholder="0" required="required" ng-model= "create.crop.width">
-      <label>inputHeight max: {{create.data.height}}</label>
-      <input type="number" placeholder="0" ng-model="create.crop.height">
-      <label>inputX</label>
-      <input type="number" placeholder="0" ng-model="create.crop.x">
-      <label>inputY</label>
-      <input type="number" placeholder="0" ng-model="create.crop.y">
-      <button ng-click="create.crop()">Crop!</button>
-    </form>
-  </div>
-=======
-    <div class="createDisplay" ng-show="create.isSetsStatus('publish')">
-      <p>{{create.info.country}}</p>
-      <p>{{create.info.month}} {{create.info.year}}</p>
-      <p>{{create.info.hashtags}}</p>
-      <button ng-click="create.publish()">Upload</button>
+    <div id="createCrop" ng-show="create.isSetsStatus('crop')">
+      <form class="form-signin">
+        <label>inputWidth max: {{create.data.width}}</label>
+        <input type="number" placeholder="0" required="required" ng-model= "create.crop.width">
+        <label>inputHeight max: {{create.data.height}}</label>
+        <input type="number" placeholder="0" ng-model="create.crop.height">
+        <label>inputX</label>
+        <input type="number" placeholder="0" ng-model="create.crop.x">
+        <label>inputY</label>
+        <input type="number" placeholder="0" ng-model="create.crop.y">
+        <button ng-click="create.crop()">Crop!</button>
+      </form>
     </div>
->>>>>>> #34
 
     <div id="createFilter" ng-show="create.isSetsStatus('filter')">
       <form>
@@ -126,48 +99,31 @@
       </form>
     </div>
 
-<<<<<<< HEAD
-  <div id="createInsert" ng-show="create.isSetsStatus('info')">
-    <form class="form-signin">
-      <label for="country">Country</label>
-      <select type="text" ng-model="create.info.country" required="required">
-        <option value="Italy">Italy</option>
-        <option value="France">France</option>
-      </select>
-      <label for="month">Month</label>
-      <select type="month" ng-model="create.info.month" required="required">
-        <option value="January">January</option>
-        <option value="February">February</option>
-      </select>
-      <label for="year">Year</label>
-      <input type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
-      <label for="hashtags">Hashtags (up to 5)</label>
-      <input type="hashtags" placeholder="#" ng-model="create.info.hashtags">
-    </form>
-  </div>
+    <div id="createInsert" ng-show="create.isSetsStatus('info')">
+      <form class="form-signin">
+        <label for="country">Country</label>
+        <select type="text" ng-model="create.info.country" required="required">
+          <option value="Italy">Italy</option>
+          <option value="France">France</option>
+        </select>
+        <label for="month">Month</label>
+        <select type="month" ng-model="create.info.month" required="required">
+          <option value="January">January</option>
+          <option value="February">February</option>
+        </select>
+        <label for="year">Year</label>
+        <input type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
+        <label for="hashtags">Hashtags (up to 5)</label>
+        <input type="hashtags" placeholder="#" ng-model="create.info.hashtags">
+      </form>
+    </div>
 
-  <div class="createDisplay" ng-show="create.isSetsStatus('publish')">
-    <p>{{create.info.country}}</p>
-    <p>{{create.info.month}} {{create.info.year}}</p>
-    <p>{{create.info.hashtags}}</p>
-    <form><button ng-click="create.publish()">Upload</button></form>
-=======
     <div class="createDisplay" ng-show="create.isSetsStatus('publish')">
       <p>{{create.info.country}}</p>
       <p>{{create.info.month}} {{create.info.year}}</p>
       <p>{{create.info.hashtags}}</p>
       <form><button ng-click="create.publish()">Upload</button></form>
     </div>
->>>>>>> #34
   </div>
 </div>
 
-
-
-      <!--ul>
-        <li class="create-status-list"><a class="create-status-icons create-status-upload" ng-click="create.setStatus('upload')">&nbsp;</a></li>
-        <li class="create-status-list"><a class="create-status-icons create-status-crop" ng-click="create.setStatus('crop')">&nbsp;</a></li>
-        <li class="create-status-list"><a class="create-status-icons create-status-filter" ng-click="create.setStatus('filter')">&nbsp;</a></li>
-        <li class="create-status-list"><a class="create-status-icons create-status-info" ng-click="create.setStatus('info')">&nbsp;</a></li>
-        <li class="create-status-list"><a class="create-status-icons create-status-publish" ng-click="create.setStatus('publish')">&nbsp;</a></li>
-      </ul-->
