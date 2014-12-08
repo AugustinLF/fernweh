@@ -1,0 +1,57 @@
+// ICON info
+
+
+//path to img!
+
+.icon-small {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-big {
+  width: $distance-e;
+  height: $distance-e;
+}
+
+.icon-link {
+  display: block;
+  fill: $light-grey;
+}
+
+.icon-link:link {
+  text-decoration: none;
+  fill: $light-grey;
+}
+
+.icon-link:hover {
+  text-decoration: none;
+  fill: $dark-grey;
+}
+
+.icon-link:active, .icon-active {
+  text-decoration: none;
+  fill: $dark-grey;
+}
+
+.icon-link:visited {
+  text-decoration: none;
+}
+
+/* individuals */
+.icon-rocket {
+  width: $distance-d;
+  height: $distance-d;
+  fill: $blue;
+  transition: transform 0.35s, fill 0.35s;
+  transform: rotateZ(0);
+}
+
+.icon-rocket:hover {
+  fill: $blue;
+  transform: rotateZ(45deg);
+}
+
+.icon-rocket:active {
+  fill: $blue;
+  transform: rotateZ(90deg);
+}

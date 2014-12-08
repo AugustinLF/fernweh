@@ -1,0 +1,179 @@
+//header specific styles
+
+
+/* .header */
+.header.navbar {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 320px;
+  border: 0;
+  border-radius: 0px;
+  box-shadow: 0px 0px 5px #263238;
+}
+
+.header-row {
+  position: relative;
+  z-index: 12;
+  line-height: $distance-e;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navbar-header, .navbar-collapse {
+  margin: 0 $distance-b;
+}
+
+button.navbar-toggle {
+  height: $distance-e;
+  padding: 0;
+  margin: 0;
+}
+/* TODO include in _icons ? */
+button.navbar-toggle .icon-bar {
+  background: #263238;
+}
+
+button.navbar-toggle:hover .icon-bar {
+  background: #549ECB;
+}
+
+.header-logo {
+  height: $distance-e;
+  padding-top: $distance-e/14;
+  width: auto;
+  display: block;
+  text-decoration: none;
+}
+/* TODO make dynamic */
+.header .header-avatar {
+  z-index: 15;
+  position: fixed;
+  top: $distance-e;
+  left: 0;
+  display: block;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  border-radius: 60px;
+  background-image: url('../img/profile.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.header .header-avatar:hover {
+  text-decoration: none;
+}
+
+.header .navbar-nav a {
+  padding: 0 $distance-a;
+}
+.header .header-menu {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.header .header-menu>li {
+  padding-left: $distance-a;
+  padding-right: 0;
+}
+
+/*.header .header-menu>li+li:before {
+  content: " | ";
+  padding-right: $distance-a;
+  color: #ECEFF0;
+}*/
+
+.header-settings {
+  background-color: transparent;
+  border: none;
+  height: $distance-e;
+}
+/* TODO make dynamic for each user */
+.header .navbar-nav .header-settings span {
+  width: $distance-d;
+  height: $distance-d;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  background-image: url('../img/user_48x48.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: transparent;
+  background-size: 100%;
+  border: none;
+  border-radius: $distance-d/2;
+  padding: 0;
+  margin-bottom: 6px; /* to vertically center it (??) */
+}
+
+.header .navbar-nav .header-settings:hover span {
+  background-position: bottom;
+  box-shadow: 0 0 5px #263238;
+}
+
+.header .navbar-nav .header-settingsdrop {
+  margin-right: 20px;
+}
+
+.header .navbar-nav .header-settingsdrop li:not(.divider) {
+  padding: 5px 10px;
+}
+
+.header .navbar-nav .header-settingsdrop a:link {
+  padding: 5px 10px;
+  color: #263238;
+  text-decoration: none;
+}
+
+.header .navbar-nav .header-settingsdrop a:hover {
+  cursor: pointer;
+  color: #549ECB;
+  text-decoration: underline;
+  background-color: transparent;
+  background-image: none;
+}
+
+.header headroom.header-bio {
+  z-index: 10;
+  display: block;
+  position: fixed;
+  top: $distance-e;
+  left: 0;
+  width: 100%;
+  padding: 70px 20% 10px 20%;
+  background-color: #FFFFFF;
+  border-top: 1px solid #ECEFF0;
+  box-shadow: 0px 0px 5px #263238;
+  text-align: center;
+}
+
+.header headroom.header-bio.headroom {
+  transition: transform 200ms linear;
+}
+
+.header headroom.header-bio.headroom--pinned {
+  transform: translateY(0%);
+}
+
+.header headroom.header-bio.headroom--unpinned {
+  transform: translateY(-100%);
+}
+
+.header-placeholder {
+  display: block;
+  height: $distance-e+$distance-b;
+  clear: both;
+}
+
+
+/* CORRECTIONS */
+@media (max-width: 767px) {
+  button.navbar-toggle {
+    display: inline-block;
+  }
+}

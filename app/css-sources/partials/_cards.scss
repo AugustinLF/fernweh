@@ -1,0 +1,168 @@
+
+
+
+
+.card {
+  position: relative;
+  display: inline-block;
+  margin: 0 $distance-b $distance-c;
+  box-shadow: 1px 1px 3px $dark-grey;
+}
+
+.card-table {
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-top {  
+  background-color: $white;
+}
+
+.card-info {
+  display: inline-block;
+}
+
+.card-bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 58px;
+  background-color: $blue-1;
+
+  transition: transform 0.35s;
+  transform: translate3d(0,100%,0);
+}
+
+.card-bot .icon-link {
+  color: #ECEFF0;
+}
+
+.card-options {
+  text-align: center;
+  transition: transform 0.35s;
+  transform: translate3d(0,100%,0);
+}
+
+.card:hover .card-bot {
+  transform: translate3d(0,0,0);
+}
+
+.card:hover .card-options {
+  transform: translate3d(0,0,0);
+}
+
+.card:hover .card-options:nth-child(4) { transition-delay: 0.05s; }
+.card:hover .card-options:nth-child(3) { transition-delay: 0.1s; }
+.card:hover .card-options:nth-child(2) { transition-delay: 0.15s; }
+.card:hover .card-options:nth-child(1) { transition-delay: 0.2s; }
+
+.card-cell {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: $distance-e;
+}
+
+.card-desc {  
+  padding-left: $distance-b;
+}
+
+.card-avatar {
+  width: 46px;
+  padding-right: $distance-b;
+  text-align: right;
+}
+
+.card-img {
+  position: relative;
+  overflow: hidden;
+  background-color: $white;
+}
+
+.card-img img {  
+  transition: opacity 0.8s, transform 0.8s;
+  backface-visibility: hidden;
+}
+
+.card:hover .card-img img {
+  opacity: 0.4;
+  transform: scale3d(1.1,1.1,1);
+}
+
+.card-avatar-img {
+  height: 36px;
+  border-radius: 18px;
+
+  transition: transform 0.35s;
+  transform: rotateZ(0);
+}
+
+.card-avatar-img:hover {
+  transform: rotateZ(35deg);  
+}
+
+.card-hashtags {  
+  position: absolute;
+  top: $distance-b;
+  left: 0;
+  text-align: left;
+}
+
+.card-hashtags a {
+  color: $dark-grey;
+  padding-left: 12px;
+}
+
+.card-hashtags a:hover {
+  color: $light-grey;
+  text-decoration: none;
+}
+
+.card-hashtags li:nth-child(1) div { background-color: $blue-1; }
+.card-hashtags li:nth-child(2) div { background-color: $blue-2; }
+.card-hashtags li:nth-child(3) div { background-color: $blue-3; }
+.card-hashtags li:nth-child(4) div { background-color: $blue-4; }
+.card-hashtags li:nth-child(5) div { background-color: $blue-5; }
+
+.card-hashtags li:nth-child(1):hover a { background-color: $blue-1; }
+.card-hashtags li:nth-child(2):hover a { background-color: $blue-2; }
+.card-hashtags li:nth-child(3):hover a { background-color: $blue-3; }
+.card-hashtags li:nth-child(4):hover a { background-color: $blue-4; }
+.card-hashtags li:nth-child(5):hover a { background-color: $blue-5; }
+
+
+.card-hashtags div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 12px;
+  color: $light-grey;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.card:hover .card-hashtags div {
+  opacity: 0.8;
+}
+
+.card-hashtags li a {
+  transition: transform 0.35s;
+  transform: translate3d(-100%,0,0);  
+}
+
+.card:hover .card-hashtags li a {
+  transform: translate3d(0,0,0);  
+}
+
+.card:hover .card-hashtags li:nth-child(1) div {transition-delay: 0.30s; }
+.card:hover .card-hashtags li:nth-child(2) div {transition-delay: 0.35s; }
+.card:hover .card-hashtags li:nth-child(3) div {transition-delay: 0.40s; }
+.card:hover .card-hashtags li:nth-child(4) div {transition-delay: 0.45s; }
+.card:hover .card-hashtags li:nth-child(5) div {transition-delay: 0.50s; }
+
+.card:hover .card-hashtags li:nth-child(1) a {transition-delay: 0s; }
+.card:hover .card-hashtags li:nth-child(2) a {transition-delay: 0.05s; }
+.card:hover .card-hashtags li:nth-child(3) a {transition-delay: 0.1s; }
+.card:hover .card-hashtags li:nth-child(4) a {transition-delay: 0.15s; }
+.card:hover .card-hashtags li:nth-child(5) a {transition-delay: 0.2s; }
