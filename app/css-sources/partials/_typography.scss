@@ -1,0 +1,115 @@
+// typography
+//http://www.google.com/design/spec/style/typography.html#typography-roboto-noto
+
+
+$century: "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-family-title: $helvetica;
+$font-family-text: $helvetica;
+
+$font-weight-light: 150; 
+$font-weight-regular: 400; 
+$font-weight-medium: 600;
+$font-weight-bold: 900;
+
+
+body {
+  font-size: 20px;
+  font-family: $font-family-text;
+}
+
+
+.text-display-4 {
+  font-size: 112px;
+  font-weight: $font-weight-light;
+  font-family: $font-family-title;
+}
+
+.text-display-3 {
+  font-size: 56px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-display-2 {
+  font-size: 45px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-display-1 {
+  font-size: 34px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-headline {
+  font-size: 24px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-title {
+  font-size: 20px;
+  font-weight: $font-weight-medium;
+  font-family: $font-family-title;
+}
+
+.text-subhead {
+  font-size: 16px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-body-2 {
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  font-family: $font-family-title;
+}
+
+.text-body-1 {
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-caption {
+  font-size: 12px;
+  font-weight: $font-weight-regular;
+  font-family: $font-family-title;
+}
+
+.text-button {
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  font-family: $font-family-title;
+  text-transform: uppercase;
+}
+
+.link-blue:link, .link-blue:visited {
+  color: $blue-1;
+  text-decoration: none;
+}
+
+.link-blue:hover, .link-blue:active {
+  color: $blue;
+  text-decoration: none;
+}
+
+
+*::-webkit-input-placeholder {
+    color: $light-grey;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: $light-grey;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: $light-grey;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $light-grey;
+}

@@ -1,0 +1,62 @@
+
+/* LOGIN */
+
+*:focus {
+    outline: 0;
+}
+
+form span {
+  display: inline-block;
+  padding: $distance-a 0;
+  color: $dark-grey;
+  margin: $distance-b 0;
+}
+
+form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: $distance-a/2 0;
+  border: 0 none;
+  border-bottom: 2px solid $light-grey;
+  background-color: transparent;
+  color: $dark-grey;
+}
+
+form input:focus, form input.ng-valid { 
+  border-color: $blue;
+}
+
+form input.ng-invalid.ng-dirty {
+  border-color: $red;
+}
+
+form label {
+  color: $blue;
+}
+
+form label.ng-valid {
+  color: $blue;
+}
+
+form label.ng-invalid.ng-dirty {
+  color: $red;
+}
+
+form button {
+  display: inline;
+  margin: $distance-b 0;
+  padding: $distance-a 0;
+  border: none;
+  background-color: transparent;
+  color: $blue;
+}
+
+form button:hover, 
+form button:active {
+  color: $blue-1;
+}
+
+/* SPECIFICS */
+.form-signin {
+  width: 350px;
+}

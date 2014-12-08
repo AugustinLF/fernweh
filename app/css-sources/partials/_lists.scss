@@ -1,0 +1,31 @@
+// all the ul lists used
+
+
+.lists {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  height: auto;
+}
+
+.lists-vertical {
+  @extend .lists;
+  text-align: left;
+  line-height: $distance-a;
+}
+
+.lists-horizontal {
+  @extend .lists;
+  display: inline-block;
+  text-align: center;
+  line-height: $distance-e;
+}
+
+.lists-vertical li, .lists-horizontal li {  
+  position: relative;
+}
+
+.lists-vertical li a, .lists-horizontal li a {
+  display: block;
+  padding: $distance-a/2 $distance-b;
+}

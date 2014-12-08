@@ -50,13 +50,13 @@ angular.module('photoAppDirectives', ['iso.directives'])
           //The on-image-drop event attribute
           //var onImageDrop = $parse(attrs.onImageDrop);
 
-          //When an item is dragged over the document, add .dragOver to the dropelement
+          //When an file is dragged over the document, add .dragOver to the dropelement
           var onDragOver = function (e) {
               e.preventDefault();
               element.addClass('dragOver');
           };
 
-          //When the user leaves the dropelement, cancels the drag or drops the item
+          //When the user leaves the dropelement, cancels the drag or drops the file
           var onDragEnd = function (e) {
               e.preventDefault();
               element.removeClass('dragOver');

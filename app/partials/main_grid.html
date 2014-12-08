@@ -1,41 +1,68 @@
-<main id="grid" class="container" ng-controller="gridController as grid">
-  <div id="itemContainer" id="isotopeContainer" isotope-container ng-cloak>
+<main id="grid" ng-controller="gridController as grid">
+  <div class="page-container">
+    <div class="isotope" id="isotopeContainer" isotope-container ng-cloak>
 
-    <div class="item {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="itemController as item" isotope-item>
-      <div class="itemRow">
-        <div class="itemCell itemDesc" data-country="{{photo.country}}" opt-kind ok-key="filter">
-          <div class="itemInfo">
-            <a href="#" class="country" ok-sel=".{{photo.country}}">{{photo.country}}</a>
-            <a href="#" class="month" ok-sel=".{{photo.month}}">{{photo.month}}</a>
-            <a href="#" class="year" ok-sel="*">{{photo.year}}</a>
+      <div class="card {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="cardController as card" isotope-card>
+        <div class="card-table card-top">
+          <div class="card-cell card-desc" data-country="{{photo.country}}" opt-kind ok-key="filter">
+            <a href="#" class="country card-info text-button link-blue" ok-sel=".{{photo.country}}">{{photo.country}}</a>
+            <a href="#" class="month card-info text-body-1 link-blue" ok-sel=".{{photo.month}}">{{photo.month}}</a>
+            <a href="#" class="year card-info text-body-1 link-blue" ok-sel="*">{{photo.year}}</a>
           </div>
-          <div class="itemAvatar"><a href="#"><img src="img/profile.jpg" /></a></div>
+          <div class="card-cell card-avatar" data-country="{{photo.country}}" opt-kind ok-key="filter">
+            <a href="#"><img class="card-avatar-img" src="img/profile.jpg" /></a>
+          </div>
         </div>
-      </div>
-      <div class="itemRow">
-        <div class="itemCell itemImg" style="width:{{photo.img[item.isSrc].width}}px; height:{{photo.img[item.isSrc].height}}px;">
-          <img ng-src="{{photo.img[item.isSrc].src}}" alt="{{photo.id}}" title="{{item.isSrc}}" />
-          <ul class="itemHashtags">
-            <li><div>&nbsp;</div><a class="invisible" href="#">#mountain</a></li>
-            <li><div>&nbsp;</div><a class="invisible" href="#">#sun</a></li>
-            <li><div>&nbsp;</div><a class="invisible" href="#">#amazing</a></li>
-            <li><div>&nbsp;</div><a class="invisible" href="#">#amazing</a></li>
-            <li><div>&nbsp;</div><a class="invisible" href="#">#amazing</a></li>
+        <figure class="card-img" style="width:{{photo.img[card.isSrc].width}}px; height:{{photo.img[card.isSrc].height}}px;">
+          <img ng-src="{{photo.img[card.isSrc].src}}" alt="{{photo.id}}" title="{{card.isSrc}}" />
+          <ul class="lists-vertical card-hashtags">
+            <li><a class="text-body-1 link-blue" href="#"><div>&nbsp;</div>#mountain</a></li>
+            <li><a class="text-body-1 link-blue" href="#"><div>&nbsp;</div>#sun</a></li>
+            <li><a class="text-body-1 link-blue" href="#"><div>&nbsp;</div>#amazing</a></li>
+            <li><a class="text-body-1 link-blue" href="#"><div>&nbsp;</div>#amazing</a></li>
+            <li><a class="text-body-1 link-blue" href="#"><div>&nbsp;</div>#amazing</a></li>
           </ul>
-          <ul class="itemInteraction">
-            <li><a class="invisible itemInteractionLike" href="#"><span>&nbsp;</span></a></li>
-            <li><a class="invisible itemInteractionShare" href="#"><span>&nbsp;</span></a></li>
-            <li><a class="invisible itemInteractionComment" href="#"><span>&nbsp;</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
+          <figcaption class="card-table card-bot">
+            <div class="card-cell card-options">
+              <a href="#" class="card-options-details icon-link">
+                <svg viewBox="0 0 100 100" class="icon-small icon-search">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="card-cell card-options">
+              <a href="#" class="card-options-like icon-link">
+                <svg viewBox="0 0 100 100" class="icon-small icon-like">
+                  <use xlink:href="#icon-like"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="card-cell card-options">
+              <a href="#" class="card-options-comment icon-link">
+                <svg viewBox="0 0 100 100" class="icon-small icon-comment">
+                  <use xlink:href="#icon-comment"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="card-cell card-options">
+              <a href="#" class="card-options-share icon-link">
+                <svg viewBox="0 0 100 100" class="icon-small icon-share">
+                  <use xlink:href="#icon-share"></use>
+                </svg>
+              </a>
+            </div>
+          </figcaption>
+
+        </figure>
+      </div>
+
+    </div>
   </div>
 
-  <div class="loading">&nbsp;</div>
+  <div class="loading" ng-click="grid.loadMore()"><div class="loading-animation">&nbsp;</div></div>
 
-  <mainfooter>
+  <mainfooter class="invisible">
     <div>
       <a ng-click="grid.loadMore()">load more images...</a>
     </div>

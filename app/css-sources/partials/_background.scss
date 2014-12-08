@@ -1,0 +1,53 @@
+
+html, body {
+  min-width: 100%;
+  min-height: 101%; /* to always show the scroll bar and the pages are the same */
+}
+
+body {
+  background-color: #263238;
+  background-image: url('../img/bg/blur_bluegrey_2600x1900.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+}
+
+.page-container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.isotope {
+  position: relative;
+  height: auto !important; /* gets reset to height:0 when initialized for some reason */
+}
+
+
+
+/* CORRECTIONS */
+.page-container {
+  width: 348px;
+}
+
+#create .page-container {
+  max-width: 650px; /* create wizard on huge screens */
+}
+
+@media (min-width: 696px) and (max-width: 1043px) {
+  .page-container {
+    width: 696px;
+  }
+}
+
+@media (min-width: 1044px) and (max-width: 1391px) {
+  .page-container {
+    width: 1044px;
+  }
+}
+
+@media (min-width: 1392px){
+  .page-container {
+    width: 1392px;
+  }
+}

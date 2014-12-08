@@ -73,8 +73,8 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
     };
   }])
 
-  // Controller instanciated for each item (trip)
-  .controller('itemController', function() {
+  // Controller instanciated for each card (trip)
+  .controller('cardController', function() {
     this.isSrc = 'load';
     this.setSrc = function(setSrc) {
       this.isSrc = setSrc;

@@ -1,0 +1,37 @@
+// colors
+
+/*
+0 #FFFFFF //BG of layers
+50 #ECEFF0 //for dividers of same priority content
+900 #263238 //body bg and font color
+blue #549ECB //hover
+
+red #B94A48 //error
+
+$color-highlight
+$color-link
+
+$color-link-dark $color-link-light
+$color-text $color-text-light $color-text-lightest
+
+*/
+
+$white: #FFFFFF;
+$light-grey: #ECEFF0;
+$dark-grey: #263238;
+$blue: #549ECB;
+
+$red: #B94A48;
+
+//blues chart
+$blue-1: #455B65;
+$blue-2: #546E7A;
+$blue-3: #607D8B;
+$blue-4: #78909C;
+$blue-5: #90A4AE;
+
+$color-text: $dark-grey;
+$color-text-divider: $light-grey;
+
+$color-link: $dark-grey;
+$color-link-hover: $blue;
