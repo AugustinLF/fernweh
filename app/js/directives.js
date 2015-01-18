@@ -69,18 +69,11 @@ angular.module('photoAppDirectives', ['iso.directives'])
                 reader.onload = onLoadCallback;
                 return reader.readAsDataURL(file);
               }
-                /* Might be useful for some checks */
-                var fileSrc;
-                //var fileSize = file.size;
-                //var fileName = file.name;
 
               readFile(file, function(e, file){
-                fileSrc = e.target.result;
+                var fileSrc = e.target.result;  // We can make test on the file object (file.size, etc.)
 
                 scope.$apply(function() {
-                  /*createBinding.data.isUploaded = true;
-                  createBinding.data.status = 'crop';
-                  createBinding.data.image = fileSrc;*/
                   createBinding.uploadImage(fileSrc);
                 });
               });

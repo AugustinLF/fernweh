@@ -17,7 +17,7 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
         console.log(error); // temporary
       });
 
-      // We reinitialise the user model in case of letter use of the sign up form
+      // We reinitialise the user model in case of later use of the sign-up form
       this.user = {};
     };
   }])
@@ -85,21 +85,16 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
     };
   })
 
-  .controller('navController', function() {
-
-  })
-
   // Handle the status of the create process
   .controller('createController',  ['CreateBindingService', 'ParseUserServices', 'ParseTripService', '$scope', function(createBinding, parseUserServices, parseTripService, $scope) {
-    // Alternative to the drag and drop feature
-    this.browseImages = function() {
+    // Default values
+    this.info = {};
+    this.crop = {};
+    this.isCanvas = false;
 
-    };
+    this.data = createBinding.data; // Used to bind data between the directive and the controller
 
-    // The controls at the bottom are hidden as long a picture is not uploaded
-    // Contained isUploaded & status
-
-    // Can only updates values shared in this.data (we are in createBinding, not in the controller)
+    // Called when a picture is uploaded 
     createBinding.uploadImage = function(fileSrc) {
       this.data.isUploaded = true;
       this.data.image = fileSrc;
@@ -114,15 +109,8 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
       this.setStatus('crop');
     };
 
-    this.data = createBinding.data;
-
-    this.info = {};
-    this.crop = {};
-    this.isCanvas = false;
-
     // Used to delete all the work. Goes back to the upload state and delete all the infos
     this.resetInterface = function() {
-      //console.log(this);
       this.data.status = 'upload';
       this.info = {};
       this.crop = {};
@@ -255,5 +243,10 @@ angular.module('photoAppControllers', ['ui.router', 'parseServices', 'bindingSer
           this.setStatus('upload');
           break;
       }
+    };
+    
+    // Alternative to the drag and drop feature
+    this.browseImages = function() {
+
     };
   }]);

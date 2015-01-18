@@ -8,9 +8,9 @@ angular.module('photoApp', [
     'parseServices'
   ])
 
+  // We set up the stats with ui.router
+  // Mapping the states to the partial views
   .config(['$stateProvider', function($stateProvider) {
-
-    // Set up the states via ui.router to display or the signup or the login, if the user is connected or not
     $stateProvider
       .state('notConnected', {
         templateUrl: 'partials/start.html'
