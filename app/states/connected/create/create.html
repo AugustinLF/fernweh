@@ -1,0 +1,129 @@
+<div id="create">
+  <div class="page-container">
+    <div class="create-status">
+      <ul class="lists-horizontal">
+        <li class="create-status-list">
+          <a href="#" class="card-options-details icon-link icon-active" ng-click="create.setStatus('upload')">
+            <svg viewBox="0 0 100 100" class="icon-big icon-upload">
+              <use xlink:href="#icon-upload"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="create-status-list">
+          <a href="#" class="card-options-details icon-link icon-active" ng-click="create.setStatus('crop')">
+            <svg viewBox="0 0 100 100" class="icon-big icon-crop">
+              <use xlink:href="#icon-crop"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="create-status-list">
+          <a href="#" class="card-options-details icon-link icon-active" ng-click="create.setStatus('filter')">
+            <svg viewBox="0 0 100 100" class="icon-big icon-filter">
+              <use xlink:href="#icon-filter"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="create-status-list">
+          <a href="#" class="card-options-details icon-link icon-active" ng-click="create.setStatus('info')">
+            <svg viewBox="0 0 100 100" class="icon-big icon-info">
+              <use xlink:href="#icon-info"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="create-status-list">
+          <a href="#" class="card-options-details icon-link icon-active" ng-click="create.setStatus('publish')">
+            <svg viewBox="0 0 100 100" class="icon-big icon-publish">
+              <use xlink:href="#icon-publish"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+        <div class="create-status-arrow" ng-class="create.data.status"><span>&nbsp;</span></div>
+    </div>
+    
+    <div class="create-canvas">
+      <a href="#" class="create-canvas-close icon-link" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
+        <svg viewBox="0 0 100 100" class="icon-small icon-stop">
+          <use xlink:href="#icon-stop"></use>
+        </svg>
+      </a>
+
+      <div class="create-canvas-drop" createtrip>
+        <span class="create-canvas-text text-headline" ng-show="!create.data.isUploaded">DRAG PHOTO HERE</span>
+        <img id="createCanvasUploadImg" class="create-canvas-img" ng-class="{'placeholder': !create.data.isUploaded}" ng-hide="create.isCanvas" ng-src="{{create.data.image}}" placeholder="img/icons/create_placeholder.png" />
+        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"></canvas>
+      </div>
+
+      <a href="#" class="create-canvas-browse icon-link" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">
+        <svg viewBox="0 0 100 100" class="icon-big icon-browse">
+          <use xlink:href="#icon-browse"></use>
+        </svg>
+      </a>
+    </div>
+
+    <div class="create-controls" ng-show="create.data.isUploaded">
+      <div class="create-controls-prev">
+        <a class="icon-link" ng-click="create.goToPreviousStatus()" href="#" title="Previous">
+          <svg viewBox="0 0 100 100" class="icon-big icon-prev">
+            <use xlink:href="#icon-prev"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="create-controls-next">
+        <a class="icon-link" ng-click="create.goToNextStatus()" href="#" title="Next">
+          <svg viewBox="0 0 100 100" class="icon-big icon-next">
+            <use xlink:href="#icon-next"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div id="createCrop" ng-show="create.isSetsStatus('crop')">
+      <form class="form-signin">
+        <label>inputWidth max: {{create.data.width}}</label>
+        <input type="number" placeholder="0" required="required" ng-model= "create.crop.width">
+        <label>inputHeight max: {{create.data.height}}</label>
+        <input type="number" placeholder="0" ng-model="create.crop.height">
+        <label>inputX</label>
+        <input type="number" placeholder="0" ng-model="create.crop.x">
+        <label>inputY</label>
+        <input type="number" placeholder="0" ng-model="create.crop.y">
+        <button ng-click="create.crop()">Crop!</button>
+      </form>
+    </div>
+
+    <div id="createFilter" ng-show="create.isSetsStatus('filter')">
+      <form>
+        <button ng-click="create.applyFilter('Vintage')">Vintage</button>
+        <button ng-click="create.applyFilter('Sin City')">Sin City</button>
+      </form>
+    </div>
+
+    <div id="createInsert" ng-show="create.isSetsStatus('info')">
+      <form class="form-signin">
+        <label for="country">Country</label>
+        <select type="text" ng-model="create.info.country" required="required">
+          <option value="Italy">Italy</option>
+          <option value="France">France</option>
+        </select>
+        <label for="month">Month</label>
+        <select type="month" ng-model="create.info.month" required="required">
+          <option value="January">January</option>
+          <option value="February">February</option>
+        </select>
+        <label for="year">Year</label>
+        <input type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
+        <label for="hashtags">Hashtags (up to 5)</label>
+        <input type="hashtags" placeholder="#" ng-model="create.info.hashtags">
+      </form>
+    </div>
+
+    <div class="createDisplay" ng-show="create.isSetsStatus('publish')">
+      <p>{{create.info.country}}</p>
+      <p>{{create.info.month}} {{create.info.year}}</p>
+      <p>{{create.info.hashtags}}</p>
+      <form><button ng-click="create.publish()">Upload</button></form>
+    </div>
+  </div>
+</div>
+

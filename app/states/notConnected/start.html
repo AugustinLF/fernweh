@@ -1,0 +1,19 @@
+<div class="container"  ng-controller="LoginScreenController as loginScreenCtrl">
+  <form class="form-signin" role="form" ng-submit="loginScreenCtrl.register()" form-autofill-fix>
+    <span class="form-signin-heading">Register</span>
+    <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.registerUser.email" required="required" autofocus>
+    <label for="email" class="text-caption">&nbsp;</label>
+    <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.registerUser.password" required="required">
+    <label for="password" class="text-caption">&nbsp;</label>
+    <button class="text-button" type="submit">Register</button>
+  </form>
+
+  <form class="form-signin" role="form" ng-submit="loginScreenCtrl.signIn()" form-autofill-fix>
+    <span class="form-signin-heading">Sign in</span>
+    <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.signInUser.email" required="required">
+    <label for="email" class="text-caption">&nbsp;</label>
+    <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.signInUser.password" required="required">
+    <label for="password" class="text-caption">&nbsp;</label>
+    <button class="text-button" type="submit">Sign in</button>
+  </form>
+</div>

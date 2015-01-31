@@ -3,6 +3,8 @@
 'use strict';
 
 module.exports = function( grunt ) {
+  var jsPath = ['app/*.js', 'app/js/*.js', 'app/assets/**/*.js', 'app/states/**/*js'];
+  
   // Project configuration.
   grunt.initConfig({
     // This line makes your node configurations available for use
@@ -26,7 +28,7 @@ module.exports = function( grunt ) {
 
     jshint: {
       // The paths tell JSHint which files to validate
-      src: ['app/js/**/*.js'],
+      src: jsPath,
       options: {  // For information on the options, check http://jshint.com/docs/options/
         // Enforcing JSHint's options
         curly: true,
@@ -35,7 +37,7 @@ module.exports = function( grunt ) {
         immed: true,
         indent: 2,
         latedef: 'nofunc',
-        newcap: true,
+        newcap: false,  // temp because of Caman
         noarg: true,
         noempty: true,
         nonew: true,
@@ -43,7 +45,8 @@ module.exports = function( grunt ) {
         undef: true,
         unused: 'vars',
         devel: true,
-        browser: true
+        browser: true,
+        predef: ['angular', 'Headroom']
       }
     },
 
@@ -70,11 +73,17 @@ module.exports = function( grunt ) {
         },
       }
     },
+    concat: {
+      dist: {
+        src: jsPath,
+        dest: 'app/dist/aggregated.js'
+      }
+    },
 
     watch: {
       js: {
-        files: ['app/js/*.js'],
-        tasks: ['jshint'],
+        files: jsPath,
+        tasks: ['jshint', 'concat'],
         options: {
           spawn: false,
         },
@@ -103,7 +112,8 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default', 'http-server' );
-  grunt.registerTask('dev', ['watch'] );
+  grunt.registerTask('dev', ['jshint', 'concat', 'sass', 'watch'] );
 };
