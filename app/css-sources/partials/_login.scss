@@ -12,7 +12,7 @@ form span {
   margin: $distance-b 0;
 }
 
-form input {
+form input, form select {
   box-sizing: border-box;
   width: 100%;
   padding: $distance-a/2 0;
@@ -22,11 +22,11 @@ form input {
   color: $dark-grey;
 }
 
-form input:focus, form input.ng-valid { 
+form input:focus, form input.ng-valid, form select:focus, form select.ng-valid { 
   border-color: $blue;
 }
 
-form input.ng-invalid.ng-dirty {
+form input.ng-invalid.ng-dirty, form select.ng-invalid.ng-dirty {
   border-color: $red;
 }
 

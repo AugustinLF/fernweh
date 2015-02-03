@@ -51,7 +51,7 @@
       <div class="create-canvas-drop" createtrip>
         <span class="create-canvas-text text-headline" ng-show="!create.data.isUploaded">DRAG PHOTO HERE</span>
         <img id="createCanvasUploadImg" class="create-canvas-img" ng-class="{'placeholder': !create.data.isUploaded}" ng-hide="create.isCanvas" ng-src="{{create.data.image}}" placeholder="img/icons/create_placeholder.png" />
-        <canvas id="createCanvasUploadCanvas" ng-show="create.isCanvas"></canvas>
+        <canvas id="createCanvasUploadCanvas" class="create-canvas-canvas" ng-show="create.isCanvas"></canvas>
       </div>
 
       <a href="#" class="create-canvas-browse icon-link" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">
@@ -109,6 +109,16 @@
         <select class="text-subhead" type="month" ng-model="create.info.month" required="required">
           <option value="January">January</option>
           <option value="February">February</option>
+          <option value="February">March</option>
+          <option value="February">April</option>
+          <option value="February">May</option>
+          <option value="February">June</option>
+          <option value="February">July</option>
+          <option value="February">August</option>
+          <option value="February">September</option>
+          <option value="February">October</option>
+          <option value="February">November</option>
+          <option value="February">December</option>
         </select>
         <label for="month" class="text-caption">Month</label>
         <input class="text-subhead" type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
