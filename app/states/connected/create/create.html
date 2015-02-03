@@ -78,47 +78,47 @@
       </div>
     </div>
 
-    <div id="createCrop" ng-show="create.isSetsStatus('crop')">
+    <div class="create-crop" ng-show="create.isSetsStatus('crop')">
       <form class="form-signin">
-        <label>inputWidth max: {{create.data.width}}</label>
-        <input type="number" placeholder="0" required="required" ng-model= "create.crop.width">
-        <label>inputHeight max: {{create.data.height}}</label>
-        <input type="number" placeholder="0" ng-model="create.crop.height">
-        <label>inputX</label>
-        <input type="number" placeholder="0" ng-model="create.crop.x">
-        <label>inputY</label>
-        <input type="number" placeholder="0" ng-model="create.crop.y">
-        <button ng-click="create.crop()">Crop!</button>
+        <input name ="crop-width" class="text-subhead" type="number" placeholder="0" required="required" ng-model= "create.crop.width">
+        <label for="crop-width" class="text-caption">inputWidth max: {{create.data.width}}</label>
+        <input name ="crop-height" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.height">
+        <label for="crop-height" class="text-caption">inputHeight max: {{create.data.height}}</label>
+        <input name="crop-x" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.x">
+        <label for="crop-x" class="text-caption">inputX</label>
+        <input name="crop-y" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.y">
+        <label for="crop-y" class="text-caption">inputY</label>
+        <button class="text-button" ng-click="create.crop()">Crop</button>
       </form>
     </div>
 
-    <div id="createFilter" ng-show="create.isSetsStatus('filter')">
+    <div class="create-filter" ng-show="create.isSetsStatus('filter')">
       <form>
         <button ng-click="create.applyFilter('Vintage')">Vintage</button>
         <button ng-click="create.applyFilter('Sin City')">Sin City</button>
       </form>
     </div>
 
-    <div id="createInsert" ng-show="create.isSetsStatus('info')">
+    <div class="create-insert" ng-show="create.isSetsStatus('info')">
       <form class="form-signin">
-        <label for="country">Country</label>
-        <select type="text" ng-model="create.info.country" required="required">
+        <select class="text-subhead" type="text" ng-model="create.info.country" required="required">
           <option value="Italy">Italy</option>
           <option value="France">France</option>
         </select>
-        <label for="month">Month</label>
-        <select type="month" ng-model="create.info.month" required="required">
+        <label for="country" class="text-caption">Country</label>
+        <select class="text-subhead" type="month" ng-model="create.info.month" required="required">
           <option value="January">January</option>
           <option value="February">February</option>
         </select>
-        <label for="year">Year</label>
-        <input type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
-        <label for="hashtags">Hashtags (up to 5)</label>
-        <input type="hashtags" placeholder="#" ng-model="create.info.hashtags">
+        <label for="month" class="text-caption">Month</label>
+        <input class="text-subhead" type="number" min="1900" max="2100" placeholder="2014" required="required" ng-model= "create.info.year">
+        <label for="year" class="text-caption">Year</label>
+        <input class="text-subhead" type="hashtags" placeholder="#" ng-model="create.info.hashtags">
+        <label for="hashtags" class="text-caption">Hashtags (up to 5)</label>
       </form>
     </div>
 
-    <div class="createDisplay" ng-show="create.isSetsStatus('publish')">
+    <div class="create-display" ng-show="create.isSetsStatus('publish')">
       <p>{{create.info.country}}</p>
       <p>{{create.info.month}} {{create.info.year}}</p>
       <p>{{create.info.hashtags}}</p>
