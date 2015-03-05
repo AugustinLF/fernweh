@@ -94,11 +94,11 @@
   border-radius: 18px;
 
   transition: transform 0.35s;
-  transform: rotateZ(0);
+  transform: scale3d(1,1,1);
 }
 
 .card-avatar-img:hover {
-  transform: rotateZ(35deg);  
+  transform: scale3d(1.1,1.1,1); 
 }
 
 .card-hashtags {  

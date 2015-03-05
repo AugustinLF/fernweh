@@ -2,7 +2,7 @@
   <div class="page-container">
     <div class="isotope" id="isotopeContainer" isotope-container ng-cloak>
 
-      <div class="card {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="cardController as card" isotope-card>
+      <div class="card {{photo.country}} {{photo.month}}" ng-repeat="photo in grid.photos track by $index" ng-controller="cardController as card" isotope-item>
         <div class="card-table card-top">
           <div class="card-cell card-desc" data-country="{{photo.country}}" opt-kind ok-key="filter">
             <a href="#" class="country card-info text-button link-blue" ok-sel=".{{photo.country}}">{{photo.country}}</a>
@@ -46,9 +46,9 @@
               </a>
             </div>
             <div class="card-cell card-options">
-              <a href="#" class="card-options-share icon-link">
-                <svg viewBox="0 0 100 100" class="icon-small icon-share">
-                  <use xlink:href="#icon-share"></use>
+              <a href="#" class="card-options-forward icon-link">
+                <svg viewBox="0 0 100 100" class="icon-small icon-forward">
+                  <use xlink:href="#icon-forward"></use>
                 </svg>
               </a>
             </div>
