@@ -6,11 +6,22 @@
 .icon-small {
   width: 16px;
   height: 16px;
+  vertical-align: middle;
+  margin-top: -2px; /* fix for vertical align with text */
+}
+
+.icon-medium {
+  width: $distance-b;
+  height: $distance-b;
+  vertical-align: middle;
+  margin-top: -2px; /* fix for vertical align with text */
 }
 
 .icon-big {
   width: $distance-e;
   height: $distance-e;
+  vertical-align: middle;
+  margin-top: -2px; /* fix for vertical align with text */
 }
 
 .icon-link {

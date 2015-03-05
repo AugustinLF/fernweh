@@ -1,19 +1,97 @@
-<div class="container"  ng-controller="LoginScreenController as loginScreenCtrl">
-  <form class="form-signin" role="form" ng-submit="loginScreenCtrl.register()" form-autofill-fix>
-    <span class="form-signin-heading">Register</span>
-    <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.registerUser.email" required="required" autofocus>
-    <label for="email" class="text-caption">&nbsp;</label>
-    <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.registerUser.password" required="required">
-    <label for="password" class="text-caption">&nbsp;</label>
-    <button class="text-button" type="submit">Register</button>
-  </form>
+<div class="container" ng-controller="LoginScreenController as loginScreenCtrl">
+  
+  <div class="login-container">
 
-  <form class="form-signin" role="form" ng-submit="loginScreenCtrl.signIn()" form-autofill-fix>
-    <span class="form-signin-heading">Sign in</span>
-    <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.signInUser.email" required="required">
-    <label for="email" class="text-caption">&nbsp;</label>
-    <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.signInUser.password" required="required">
-    <label for="password" class="text-caption">&nbsp;</label>
-    <button class="text-button" type="submit">Sign in</button>
-  </form>
+    <div class="login" ng-hide="loginScreenCtrl.switch">
+      <div class="login-top">
+        <span class="text-headline">Register <a href="#" class="text-subhead" ng-click="loginScreenCtrl.switchLogin()">or login</a></span>
+      </div>
+      <div class="login-bot">
+        <form class="form-signin" role="form" ng-submit="loginScreenCtrl.register()" form-autofill-fix>
+          <div class="form-row form-top-space">
+            <span class="form-icon">
+              <svg viewBox="0 0 100 100" class="icon-medium icon-message_open">
+                <use xlink:href="#icon-message_open"></use>
+              </svg>
+            </span>
+            <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.registerUser.email" required="required" autofocus>
+          </div>
+          <div class="form-row form-bot-space">
+            <label for="email" class="text-caption">&nbsp;</label>
+          </div>
+          <div class="form-row">
+            <span class="form-icon">
+              <svg viewBox="0 0 100 100" class="icon-medium icon-lock_closed">
+                <use xlink:href="#icon-lock_closed"></use>
+              </svg>
+            </span>
+            <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.registerUser.password" required="required">
+          </div>
+          <div class="form-row">
+            <label for="password" class="text-caption">&nbsp;</label>
+          </div>
+          <div class="form-row">
+            <button class="text-button" type="submit">Register</button>
+          </div>
+          <div class="form-row form-bot-space form-help">
+            <span class="text-caption">
+              <a href="#" class="form-help-link link-blue">
+                <svg viewBox="0 0 100 100" class="icon-small icon-help">
+                  <use xlink:href="#icon-help"></use>
+                </svg>
+                <span>Need help?</span>
+              </a>            
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="login" ng-show="loginScreenCtrl.switch">
+      <div class="login-top">
+        <span class="text-headline">Login <a href="#" class="text-subhead" ng-click="loginScreenCtrl.switchLogin()">or register</a></span>
+      </div>
+      <div class="login-bot">
+        <form class="form-signin" role="form" ng-submit="loginScreenCtrl.signIn()" form-autofill-fix>
+          <div class="form-row form-top-space">
+            <span class="form-icon">
+              <svg viewBox="0 0 100 100" class="icon-medium icon-message_open">
+                <use xlink:href="#icon-message_open"></use>
+              </svg>
+            </span>
+            <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.signInUser.email" required="required" autofocus>
+          </div>
+          <div class="form-row form-bot-space">
+            <label for="email" class="text-caption">&nbsp;</label>
+          </div>
+          <div class="form-row">
+            <span class="form-icon">
+              <svg viewBox="0 0 100 100" class="icon-medium icon-lock_closed">
+                <use xlink:href="#icon-lock_closed"></use>
+              </svg>
+            </span>
+            <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.signInUser.password" required="required" title="Wrong password!">
+          </div>
+          <div class="form-row">
+            <label for="password" class="text-caption">&nbsp;</label>
+          </div>
+          <div class="form-row">
+            <button class="text-button" type="submit">Sign In</button>
+          </div>
+          <div class="form-row form-bot-space form-help">
+            <span class="text-caption">
+              <a href="#" class="form-help-link link-blue">
+                <svg viewBox="0 0 100 100" class="icon-small icon-help">
+                  <use xlink:href="#icon-help"></use>
+                </svg>
+                <span>Forgot password?</span>
+              </a>            
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </div>
+  
 </div>

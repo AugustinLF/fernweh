@@ -16,6 +16,8 @@
         vm.registerUser = {};
         vm.signIn = signIn;
         vm.register = register;
+        vm.switchLogin = switchLogin;
+        vm.switch = true;
 
         // Add a user to the database and if success, changes the state to connected
         function register() {
@@ -41,6 +43,11 @@
                     // The login failed. Check error to see why.
                     alert('Error: ' + error.code + ' ' + error.message);
                 });
+        }
+      
+        // Switch between Log In and Register form
+        function switchLogin() {
+            vm.switch = vm.switch === false ? true: false;          
         }
     }
     
