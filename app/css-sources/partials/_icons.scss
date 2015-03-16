@@ -39,7 +39,7 @@
   fill: $dark-grey;
 }
 
-.icon-link:active, .icon-active {
+.icon-link:active, .icon-active.icon-link {
   text-decoration: none;
   fill: $dark-grey;
 }
@@ -58,11 +58,11 @@
 }
 
 .icon-rocket:hover {
-  fill: $blue;
+  fill: $blue-3;
   transform: rotateZ(45deg);
 }
 
 .icon-rocket:active {
-  fill: $blue;
+  fill: $blue-5;
   transform: rotateZ(90deg);
 }

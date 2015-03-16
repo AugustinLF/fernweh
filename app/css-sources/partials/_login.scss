@@ -74,8 +74,13 @@
   margin-left: $distance-f;
 }
 
+.form-center {
+  text-align: center;
+}
+
 form {
   margin: 0 auto;
+  background-color: $light-grey;
 }
 
 form input, form select {

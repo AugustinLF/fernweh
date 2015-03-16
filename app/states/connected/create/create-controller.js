@@ -20,7 +20,9 @@
         vm.data = createBinding.data; // Used to bind data between the directive and the controller
         vm.resetInterface = resetInterface;
         vm.setStatus = setStatus;
-        vm.isSetsStatus = isSetsStatus;
+        vm.isSetStatus = isSetStatus;
+        vm.setIconActive = setIconActive;
+        vm.browseImages = browseImages;
         vm.crop = crop;
         vm.applyFilter = applyFilter;
         vm.publish = publish;
@@ -68,8 +70,16 @@
 
         createBinding.setStatus = vm.setStatus.bind(this);
 
-        function isSetsStatus(statusName) {
-            return vm.data.status === statusName;
+        function isSetStatus(statusName) {
+          return vm.data.status === statusName;
+        }
+      
+      function browseImages() {
+        alert('set up browse upload :)');
+      }
+      
+        function setIconActive(icon) {
+          return (vm.data.status === icon) ? 'icon-active' : '';
         }
 
         function crop() {
