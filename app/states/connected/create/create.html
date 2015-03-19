@@ -130,9 +130,9 @@
           <label for="crop-y" class="text-caption">inputY</label>
         </div>
         
-          <div class="form-row">
-            <button class="text-button" ng-click="create.crop()">Crop</button>
-          </div>
+        <div class="form-row">
+          <button class="text-button" ng-click="create.crop()">Crop</button>
+        </div>
 
       </form>
     </div>
@@ -143,7 +143,12 @@
           <button class="create-filter-button" ng-click="create.applyFilter('Vintage')">Vintage</button>
           <button class="create-filter-button" ng-click="create.applyFilter('Sin City')">Sin City</button>
         </div>
-        <div class="form-row">
+        
+        <div class="form-row form-filter-slider" ng-controller="ngSlider as filterslider">
+          <input ng-model="value" type="text" id="filter-slider" slider options="options" />
+        </div>
+        
+        <div class="form-row form-bot-space">
           <label for="filters" class="text-caption">&nbsp;</label>
         </div>
       </form>
@@ -202,7 +207,8 @@
           <label for="hashtags" class="text-caption">{{create.info.country}} {{create.info.month}} {{create.info.year}} {{create.info.hashtags}}</label>
         </div>
       </form>
-    </div>
+    </div>  
+    
   </div>
 </div>
 

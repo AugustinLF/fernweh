@@ -1,0 +1,152 @@
+
+
+
+
+.jslider {
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	position: relative;
+	top: $distance-a;
+}
+
+.jslider-pointer {
+	position: absolute;
+	width: $distance-a;
+	height: $distance-a;
+	z-index: 3;
+	top: -4px;
+	left: 20%;
+	margin-left: -6px;
+	background-color: $blue;
+	border-radius: 50%;
+
+    //transition: 1s left;  //lags when dragging
+}
+
+.jslider-pointer.jslider-pointer-hover {
+  box-shadow: 0px 0px 0px 10px rgba(84, 158, 203, 0.3);
+}
+
+.jslider.disabled {
+	opacity: .4;
+}
+
+
+/* for the width of slider line */
+.jslider table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 0;
+}
+.jslider td,.jslider th {
+	padding: 0;
+	vertical-align: top;
+	text-align: left;
+	border: 0;
+}
+.jslider table,.jslider table tr,.jslider table tr td {
+	width: 100%;
+	vertical-align: top;
+}
+.jslider .jslider-bg {
+	position: relative;
+}
+.jslider-bg i {
+	height: 5px;
+	position: absolute;
+	font-size: 0;
+	top: 0;
+}
+
+.jslider-bg .l {  // left 50%
+	width: 50%;
+	left: 0;
+    background-color: $blue-5;
+}
+.jslider-bg .r { // right 50%
+	width: 50%;
+	left: 50%;
+    background-color: $blue-5;
+}
+.jslider-bg .v { // preset position??
+	z-index: 1;
+	position: absolute;
+	width: 60%;
+	left: 20%;
+	top: 0;
+	height: 5px;
+}
+.jslider-bg .s {  // start and center piece (1px width)
+	z-index: 1;
+	left: 0;
+	width: 1px;
+}
+.jslider-bg .p {    // from start to current position until center
+	left: 0;
+	width: 1px;
+	background-color: $blue;
+}
+.jslider-bg .f {   // from center to current position
+	left: 0;
+	background-color: $blue;
+}
+.jslider-pointer-to { // pointer ball 
+	left: 80%;
+}
+.jslider-label {
+    display: none;
+  
+	/*font-size: 9px;
+	line-height: 12px;
+	color: #000;
+	opacity: .4;
+	white-space: nowrap;
+	padding: 0 2px;
+	position: absolute;
+	top: -18px;
+	left: 0;*/
+}
+.jslider-label-to {
+	left: auto;
+	right: 0;
+}
+.jslider .jslider-value {
+    display: none;
+  /*
+	left: 0;
+	font-size: 9px;
+	white-space: nowrap;
+	padding: 1px 2px 0;
+	position: absolute;
+	top: -19px;
+	line-height: 12px;
+	moz-border-radius: 2px;
+	webkit-border-radius: 2px;
+	o-border-radius: 2px;
+	border-radius: 2px;*/
+}
+.jslider-value-to {
+	left: 80%;
+}
+.jslider .jslider-scale {
+	position: relative;
+	top: 9px;
+}
+.jslider .jslider-scale span {
+	position: absolute;
+	height: 5px;
+	border-left: 1px solid #999;
+	font-size: 0;
+}
+.jslider .jslider-scale ins {
+	font-size: 9px;
+	text-decoration: none;
+	position: absolute;
+	left: 0;
+	top: 5px;
+	color: #999;
+}
+.jslider-single .jslider-pointer-to,.jslider-single .jslider-value-to,.jslider-single .jslider-bg .v,.jslider-limitless .jslider-label {
+	display: none;
+}
