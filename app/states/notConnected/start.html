@@ -14,10 +14,10 @@
                 <use xlink:href="#icon-message_open"></use>
               </svg>
             </span>
-            <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.registerUser.email" required="required" autofocus>
+            <input id="register-email" name="register-email" class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.registerUser.email" required="required" autofocus>
           </div>
           <div class="form-row form-bot-space">
-            <label for="email" class="text-caption">&nbsp;</label>
+            <label for="register-email" class="text-caption">&nbsp;</label>
           </div>
           <div class="form-row">
             <span class="form-icon">
@@ -25,10 +25,10 @@
                 <use xlink:href="#icon-lock_closed"></use>
               </svg>
             </span>
-            <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.registerUser.password" required="required">
+            <input id="register-password" name="register-password" class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.registerUser.password" required="required">
           </div>
           <div class="form-row">
-            <label for="password" class="text-caption">&nbsp;</label>
+            <label for="register-password" class="text-caption">&nbsp;</label>
           </div>
           <div class="form-row">
             <button class="text-button" type="submit">Register</button>
@@ -59,10 +59,10 @@
                 <use xlink:href="#icon-message_open"></use>
               </svg>
             </span>
-            <input class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.signInUser.email" required="required" autofocus>
+            <input id="login-email" name="login-email" class="text-subhead" type="email" placeholder="Email" ng-model="loginScreenCtrl.signInUser.email" required="required" autofocus>
           </div>
           <div class="form-row form-bot-space">
-            <label for="email" class="text-caption">&nbsp;</label>
+            <label for="login-email" class="text-caption">&nbsp;</label>
           </div>
           <div class="form-row">
             <span class="form-icon">
@@ -70,10 +70,10 @@
                 <use xlink:href="#icon-lock_closed"></use>
               </svg>
             </span>
-            <input class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.signInUser.password" required="required" title="Wrong password!">
+            <input id="login-password" name="login-password" class="text-subhead" type="password" placeholder="Password" ng-model="loginScreenCtrl.signInUser.password" required="required" title="Wrong password!">
           </div>
           <div class="form-row">
-            <label for="password" class="text-caption">&nbsp;</label>
+            <label for="login-password" class="text-caption">&nbsp;</label>
           </div>
           <div class="form-row">
             <button class="text-button" type="submit">Sign In</button>

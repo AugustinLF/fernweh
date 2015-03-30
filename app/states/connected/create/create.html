@@ -88,7 +88,7 @@
               <use xlink:href="#icon-compass"></use>
             </svg>
           </span>
-          <input name="crop-width" class="text-subhead" type="number" placeholder="0" required="required" ng-model="create.crop.width">
+          <input id="crop-width" name="crop-width" class="text-subhead" type="number" placeholder="0" required="required" ng-model="create.crop.width">
         </div>
         <div class="form-row">
           <label for="crop-width" class="text-caption">inputWidth max: {{create.data.width}}</label>
@@ -100,7 +100,7 @@
               <use xlink:href="#icon-compass"></use>
             </svg>
           </span>
-          <input name="crop-height" class="text-subhead" type="number" placeholder="0" required="required" ng-model="create.crop.height">
+          <input id="crop-height" name="crop-height" class="text-subhead" type="number" placeholder="0" required="required" ng-model="create.crop.height">
         </div>
         <div class="form-row">
           <label for="crop-height" class="text-caption">inputHeight max: {{create.data.height}}</label>
@@ -112,7 +112,7 @@
               <use xlink:href="#icon-compass"></use>
             </svg>
           </span>
-          <input name="crop-x" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.x">
+          <input id="crop-x" name="crop-x" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.x">
         </div>
         <div class="form-row">
           <label for="crop-x" class="text-caption">inputX</label>
@@ -124,7 +124,7 @@
               <use xlink:href="#icon-compass"></use>
             </svg>
           </span>
-          <input name="crop-y" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.y">
+          <input id="crop-y" name="crop-y" class="text-subhead" type="number" placeholder="0" ng-model="create.crop.y">
         </div>
         <div class="form-row">
           <label for="crop-y" class="text-caption">inputY</label>
@@ -207,14 +207,11 @@
           <input ng-model="value" type="text" id="filter-slider" slider options="options" />
         </div>
         
-        <div class="form-row">
+        <div class="form-row form-bot-space">
           <button class="create-filter-button" ng-click="create.applyFilter('Vintage')">Vintage</button>
           <button class="create-filter-button" ng-click="create.applyFilter('Sin City')">Sin City</button>
         </div>
-        
-        <div class="form-row form-bot-space">
-          <label for="filters" class="text-caption">&nbsp;</label>
-        </div>
+
       </form>
     </div>
 
@@ -227,14 +224,14 @@
               <use xlink:href="#icon-compass"></use>
             </svg>
           </span>
-          <select class="text-subhead" type="text" ng-model="create.info.country" required="required">
+          <select id="info-country" class="text-subhead" type="text" ng-model="create.info.country" required="required">
             <option value="Italy">Italy</option>
             <option value="France">France</option>
           </select>
           <!--md-chips collection='create.chipsInsert()' ng-model='create.selectedUsers' md-title='title' md-thumbnail='thumbnailUrl' md-subtitle='subtitle' md-item='items'/-->
         </div>
         <div class="form-row">
-          <label for="country" class="text-caption">&nbsp;</label>
+          <label for="info-country" class="text-caption">&nbsp;</label>
         </div>
         
         <div class="form-row">
@@ -243,13 +240,13 @@
               <use xlink:href="#icon-calendar"></use>
             </svg>
           </span>
-          <input class="text-subhead" type="text" placeholder="July 2014" pattern="[A-Za-z]* [0-9]{4}" required="required" ng-model= "create.info.year">
+          <input id="info-calendar" name="info-calendar" class="text-subhead" type="text" placeholder="July 2014" pattern="[A-Za-z]* [0-9]{4}" required="required" ng-model= "create.info.year">
           <div class="info-calendar">
             
           </div>
         </div>
         <div class="form-row">
-          <label for="month" class="text-caption">&nbsp;</label>
+          <label for="info-calendar" class="text-caption">&nbsp;</label>
         </div>
         
         <div class="form-row">
@@ -258,10 +255,10 @@
               <use xlink:href="#icon-label"></use>
             </svg>
           </span>
-          <input class="text-subhead" type="hashtags" placeholder="#" ng-model="create.info.hashtags">
+          <input id="info-hashtags" name="info-hashtags" class="text-subhead" type="hashtags" placeholder="#" ng-model="create.info.hashtags">
         </div>
         <div class="form-row">
-          <label for="hashtags" class="text-caption">&nbsp;</label>
+          <label for="info-hashtags" class="text-caption">&nbsp;</label>
         </div>
       </form>
     </div>
@@ -272,7 +269,7 @@
           <button ng-click="create.publish()">Upload</button>
         </div>
         <div class="form-row">
-          <label for="hashtags" class="text-caption">{{create.info.country}} {{create.info.month}} {{create.info.year}} {{create.info.hashtags}}</label>
+          <label name="publish-info" class="text-caption">{{create.info.country}} {{create.info.month}} {{create.info.year}} {{create.info.hashtags}}</label>
         </div>
       </form>
     </div>  
