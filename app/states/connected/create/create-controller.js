@@ -11,7 +11,7 @@
   var injectParams = ['CreateBindingService', 'ParseUserServices', 'ParseTripService', '$scope'];
   createController.$inject = injectParams;
 
-  //to refactor rethink redo 
+  //to refactor rethink redo > prolly to import in the createController function
   function ngSlider($scope){
     $scope.value = '35';
     $scope.options = {
@@ -37,7 +37,6 @@
     vm.browseImages = browseImages;
     vm.crop = crop;
     vm.applyFilter = applyFilter;
-    vm.slideFilter = slideFilter; 
     vm.publish = publish;
     vm.goToPreviousStatus = goToPreviousStatus;
     vm.goToNextStatus = goToNextStatus;
@@ -135,10 +134,6 @@
       });
       vm.isCanvas = false;
     }
-
-  function slideFilter() {
-    alert('test');
-  }
 
     function publish() {
       if(true) {  // Validation of the content

@@ -160,11 +160,22 @@
   
 }
 
+.create-filter-table {
+  display: table;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.create-filter-cols {
+  display: table-cell;
+}
+
 .create-filter-button {
   padding: 0 10px;
 }
 
-.form-filter-slider {
+.create-filter-slider {
   padding: 0 25px;
   margin: 0 auto;
+  height: 40px;
 }

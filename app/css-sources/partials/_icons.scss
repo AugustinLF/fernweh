@@ -1,8 +1,5 @@
 // ICON info
 
-
-//path to img!
-
 .icon-small {
   width: 16px;
   height: 16px;
@@ -26,26 +23,56 @@
 
 .icon-link {
   display: block;
-  fill: $light-grey;
 }
 
 .icon-link:link {
   text-decoration: none;
-  fill: $light-grey;
 }
 
 .icon-link:hover {
   text-decoration: none;
-  fill: $dark-grey;
 }
 
 .icon-link:active, .icon-active.icon-link {
   text-decoration: none;
-  fill: $dark-grey;
 }
 
 .icon-link:visited {
   text-decoration: none;
+}
+
+/* Colors light icons */
+.icon-link-light {
+  fill: $light-grey;
+}
+
+.icon-link-light:link {
+  fill: $light-grey;
+}
+
+.icon-link-light:hover, .icon-active.icon-link {
+  fill: $dark-grey;
+}
+
+.icon-link-light:active {
+  fill: $blue;
+}
+
+/* Colors dark icons */
+.icon-link-dark {
+  fill: $blue-1;
+}
+
+.icon-link-dark:link {
+  fill: $blue-1;
+}
+
+.icon-link-dark:hover {
+  fill: $dark-grey;
+}
+
+.icon-link-dark:active {
+  fill: $blue;
 }
 
 /* individuals */
