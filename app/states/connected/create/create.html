@@ -3,35 +3,35 @@
     <div class="create-status">
       <ul class="lists-horizontal">
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('upload')" ng-click="create.setStatus('upload')">
+          <a href="#" class="card-options-details icon-link icon-link-light" ng-class="create.setIconActive('upload')" ng-click="create.setStatus('upload')">
             <svg viewBox="0 0 100 100" class="icon-big icon-upload">
               <use xlink:href="#icon-upload"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('crop')" ng-click="create.setStatus('crop')">
+          <a href="#" class="card-options-details icon-link icon-link-light" ng-class="create.setIconActive('crop')" ng-click="create.setStatus('crop')">
             <svg viewBox="0 0 100 100" class="icon-big icon-crop">
               <use xlink:href="#icon-crop"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('filter')" ng-click="create.setStatus('filter')">
+          <a href="#" class="card-options-details icon-link icon-link-light" ng-class="create.setIconActive('filter')" ng-click="create.setStatus('filter')">
             <svg viewBox="0 0 100 100" class="icon-big icon-filter">
               <use xlink:href="#icon-filter"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('info')" ng-click="create.setStatus('info')">
+          <a href="#" class="card-options-details icon-link icon-link-light" ng-class="create.setIconActive('info')" ng-click="create.setStatus('info')">
             <svg viewBox="0 0 100 100" class="icon-big icon-info">
               <use xlink:href="#icon-info"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('publish')" ng-click="create.setStatus('publish')">
+          <a href="#" class="card-options-details icon-link icon-link-light" ng-class="create.setIconActive('publish')" ng-click="create.setStatus('publish')">
             <svg viewBox="0 0 100 100" class="icon-big icon-publish">
               <use xlink:href="#icon-publish"></use>
             </svg>
@@ -42,7 +42,7 @@
     </div>
     
     <div class="create-canvas">
-      <a href="#" class="create-canvas-close icon-link" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
+      <a href="#" class="create-canvas-close icon-link icon-link-light" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
         <svg viewBox="0 0 100 100" class="icon-small icon-stop">
           <use xlink:href="#icon-stop"></use>
         </svg>
@@ -51,7 +51,7 @@
       <div class="create-canvas-drop" createtrip>
         <span class="create-canvas-text text-headline" ng-show="!create.data.isUploaded">
           <h3>DRAG PHOTO HERE</h3>
-          <a href="#" class="create-canvas-browse icon-link" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">
+          <a href="#" class="create-canvas-browse icon-link icon-link-light" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">
             <svg viewBox="0 0 100 100" class="icon-medium icon-browse">
               <use xlink:href="#icon-browse"></use>
             </svg>
@@ -64,14 +64,14 @@
 
     <div class="create-controls" ng-show="create.data.isUploaded">
       <div class="create-controls-prev">
-        <a class="icon-link" ng-click="create.goToPreviousStatus()" href="#" title="Previous">
+        <a class="icon-link icon-link-light" ng-click="create.goToPreviousStatus()" href="#" title="Previous">
           <svg viewBox="0 0 100 100" class="icon-big icon-prev">
             <use xlink:href="#icon-prev"></use>
           </svg>
         </a>
       </div>
       <div class="create-controls-next">
-        <a class="icon-link" ng-click="create.goToNextStatus()" href="#" title="Next">
+        <a class="icon-link icon-link-light" ng-click="create.goToNextStatus()" href="#" title="Next">
           <svg viewBox="0 0 100 100" class="icon-big icon-next">
             <use xlink:href="#icon-next"></use>
           </svg>
@@ -140,12 +140,76 @@
     <div class="create-filter form-bot-space" ng-show="create.isSetStatus('filter')">
       <form class="form-create-filter form-center">
         <div class="form-row form-top-space">
-          <button class="create-filter-button" ng-click="create.applyFilter('Vintage')">Vintage</button>
-          <button class="create-filter-button" ng-click="create.applyFilter('Sin City')">Sin City</button>
+          
+          <div class="create-filter-table">
+            
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#" class="create-filter-cols">
+              <span class="form-icon">
+                <svg viewBox="0 0 100 100" class="icon-big icon-link icon-link-dark icon-compass">
+                  <use xlink:href="#icon-compass"></use>
+                </svg>
+              </span>
+            </a>
+              
+          </div>
+          
         </div>
         
-        <div class="form-row form-filter-slider" ng-controller="ngSlider as filterslider">
+        <div class="form-row create-filter-slider" ng-controller="ngSlider as filterslider">
           <input ng-model="value" type="text" id="filter-slider" slider options="options" />
+        </div>
+        
+        <div class="form-row">
+          <button class="create-filter-button" ng-click="create.applyFilter('Vintage')">Vintage</button>
+          <button class="create-filter-button" ng-click="create.applyFilter('Sin City')">Sin City</button>
         </div>
         
         <div class="form-row form-bot-space">
@@ -167,6 +231,7 @@
             <option value="Italy">Italy</option>
             <option value="France">France</option>
           </select>
+          <!--md-chips collection='create.chipsInsert()' ng-model='create.selectedUsers' md-title='title' md-thumbnail='thumbnailUrl' md-subtitle='subtitle' md-item='items'/-->
         </div>
         <div class="form-row">
           <label for="country" class="text-caption">&nbsp;</label>
@@ -179,6 +244,9 @@
             </svg>
           </span>
           <input class="text-subhead" type="text" placeholder="July 2014" pattern="[A-Za-z]* [0-9]{4}" required="required" ng-model= "create.info.year">
+          <div class="info-calendar">
+            
+          </div>
         </div>
         <div class="form-row">
           <label for="month" class="text-caption">&nbsp;</label>
