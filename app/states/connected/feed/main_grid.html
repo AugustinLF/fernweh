@@ -24,29 +24,36 @@
           </ul>
 
           <figcaption class="card-table card-bot">
-            <div class="card-cell card-options">
-              <a href="#" class="card-options-details icon-link icon-link-light">
+            <div class="card-cell card-options" ng-class="{'card-hidden': card.commenting}">
+              <a ng-click="card.optionsDetails($event)" href="#" alt="details" class="card-options-details icon-link icon-link-light">
                 <svg viewBox="0 0 100 100" class="icon-small icon-search">
                   <use xlink:href="#icon-search"></use>
                 </svg>
               </a>
             </div>
-            <div class="card-cell card-options">
-              <a href="#" class="card-options-like icon-link icon-link-light">
+            <div class="card-cell card-options" ng-class="{'card-hidden': card.commenting}">
+              <a ng-click="card.optionsLike($event)" href="#" alt="like" class="card-options-like icon-link icon-link-light">
                 <svg viewBox="0 0 100 100" class="icon-small icon-like">
                   <use xlink:href="#icon-like"></use>
                 </svg>
               </a>
             </div>
             <div class="card-cell card-options">
-              <a href="#" class="card-options-comment icon-link icon-link-light">
+              <a ng-click="card.optionsComment($event)" href="#" alt="comment" class="card-options-comment icon-link icon-link-light">
                 <svg viewBox="0 0 100 100" class="icon-small icon-comment">
                   <use xlink:href="#icon-comment"></use>
                 </svg>
               </a>
             </div>
-            <div class="card-cell card-options">
-              <a href="#" class="card-options-forward icon-link icon-link-light">
+            <div class="card-cell card-comment" ng-class="{'card-hidden': !card.commenting}">
+              <form class="card-cell">
+                <input name="card-comment" class="text-subhead link-blue" type="text" placeholder="Comment">
+              </form>
+              <a class="card-cell text-body-1 link-blue" href="#">SEND</a>
+              <!--a class="card-cell text-body-1 link-blue" href="#">SEE ALL</a-->
+            </div>
+            <div class="card-cell card-options" ng-class="{'card-hidden': card.commenting}">
+              <a ng-click="card.optionsForward($event)" href="#" alt="share" class="card-options-forward icon-link icon-link-light">
                 <svg viewBox="0 0 100 100" class="icon-small icon-forward">
                   <use xlink:href="#icon-forward"></use>
                 </svg>

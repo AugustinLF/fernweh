@@ -75,6 +75,15 @@
   fill: $blue;
 }
 
+/* activate option icons */
+.icon-link.on-b {
+  fill: $blue;
+}
+
+.icon-link.on-r {
+  fill: $red;
+}
+
 /* individuals */
 .icon-rocket {
   width: $distance-d;

@@ -27,7 +27,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 58px;
+  height: $distance-e+2;
   background-color: $blue-1;
 
   transition: transform 0.35s;
@@ -40,8 +40,12 @@
 
 .card-options {
   text-align: center;
-  transition: transform 0.35s;
+  transition: transform 0.35s, display 0.5s;
   transform: translate3d(0,100%,0);
+}
+
+.card-options.card-hidden {
+  display: none;
 }
 
 .card:hover .card-bot {
@@ -61,6 +65,28 @@
   display: table-cell;
   vertical-align: middle;
   line-height: $distance-e;
+}
+
+.card-cell.card-comment.card-hidden {
+  display: none;
+}
+
+.card-cell.card-comment {
+  background-color: $light-grey;
+  text-align: center;
+  display: table-cell;
+  width: 75%;
+  
+  transition: display 0.5s;
+}
+
+.card-cell.card-comment input {
+  width: 90%;
+  line-height: $distance-b;
+}
+
+.card-cell.card-comment a {
+  padding:0 6px;
 }
 
 .card-desc {  

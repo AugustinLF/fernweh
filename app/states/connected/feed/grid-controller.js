@@ -10,32 +10,33 @@
     gridController.$inject = injectParams;
 
     function gridController($http) {
-        /* jshint validthis: true */
-        var vm = this;
-        vm.photos = [];
-        vm.loadMore = loadMore;
+      /* jshint validthis: true */
+      var vm = this;
+      vm.photos = [];
+      vm.loadMore = loadMore;
 
-        // Load a first round of trips
-        $http.get('data/photos.json').success(function(data) {
-            vm.photos = data;
+      // Load a first round of trips
+      $http.get('data/photos.json').success(function(data) {
+        vm.photos = data;
+      });
+
+      // Used on click to display more trips
+      function loadMore() {
+        $http.get('data/morePhotos.json').success(function(data) {
+          data.forEach(function(morephoto) {
+            vm.photos.push(morephoto);
+          });
         });
+      }
 
-        // Used on click to display more trips
-        function loadMore() {
-            $http.get('data/morePhotos.json').success(function(data) {
-                data.forEach(function(morephoto) {
-                    vm.photos.push(morephoto);
-                });
-            });
-        }
     }
     
     gridRtr.$inject = ['$stateProvider'];
     
     function gridRtr($stateProvider) {
-        $stateProvider.state('connected.feed', {
-            templateUrl: 'states/connected/feed/main_grid.html',
-            controller: 'gridController as grid'
-        });
+      $stateProvider.state('connected.feed', {
+        templateUrl: 'states/connected/feed/main_grid.html',
+        controller: 'gridController as grid'
+      });
     }
 }());
