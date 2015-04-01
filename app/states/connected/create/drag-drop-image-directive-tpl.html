@@ -1,4 +1,10 @@
-<span class="create-canvas-text text-headline" ng-show="!dragDropCtrl.isImageLoaded">
+<a href="#" class="create-canvas-close icon-link" ng-click="dragDropCtrl.removeImage()" ng-show="dragDropCtrl.isImageLoaded" href="#" title="Reload">
+  <svg viewBox="0 0 100 100" class="icon-small icon-stop">
+    <use xlink:href="#icon-stop"></use>
+  </svg>
+</a>
+
+<span class="create-canvas-text text-headline" ng-hide="dragDropCtrl.isImageLoaded">
   <h3>DRAG PHOTO HERE</h3>
   <!-- <a href="#" class="create-canvas-browse icon-link" ng-click="create.browseImages()"  href="#" title="Browse..">
     <svg viewBox="0 0 100 100" class="icon-medium icon-browse">

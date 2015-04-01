@@ -14,5 +14,5 @@
   "unused": "vars",
   "devel": true,
   "browser": true,
-  "globals": ["angular", "Headroom"]
+  "predef": ["angular", "Headroom"]
 }

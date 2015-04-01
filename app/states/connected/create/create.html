@@ -3,35 +3,35 @@
     <div class="create-status">
       <ul class="lists-horizontal">
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('upload')" ng-click="create.setStatus('upload')">
+          <a href="#" class="card-options-details icon-link" ng-class="{'icon-active': create.isSetStatus('upload')}" ng-click="create.setStatus('upload')">
             <svg viewBox="0 0 100 100" class="icon-big icon-upload">
               <use xlink:href="#icon-upload"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('crop')" ng-click="create.setStatus('crop')">
+          <a href="#" class="card-options-details icon-link" ng-class="{'icon-active': create.isSetStatus('crop')}" ng-click="create.setStatus('crop')">
             <svg viewBox="0 0 100 100" class="icon-big icon-crop">
               <use xlink:href="#icon-crop"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('filter')" ng-click="create.setStatus('filter')">
+          <a href="#" class="card-options-details icon-link" ng-class="{'icon-active': create.isSetStatus('filter')}" ng-click="create.setStatus('filter')">
             <svg viewBox="0 0 100 100" class="icon-big icon-filter">
               <use xlink:href="#icon-filter"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('info')" ng-click="create.setStatus('info')">
+          <a href="#" class="card-options-details icon-link" ng-class="{'icon-active': create.isSetStatus('info')}" ng-click="create.setStatus('info')">
             <svg viewBox="0 0 100 100" class="icon-big icon-info">
               <use xlink:href="#icon-info"></use>
             </svg>
           </a>
         </li>
         <li class="create-status-list">
-          <a href="#" class="card-options-details icon-link" ng-class="create.setIconActive('publish')" ng-click="create.setStatus('publish')">
+          <a href="#" class="card-options-details icon-link" ng-class="{'icon-active': create.isSetStatus('publish')}" ng-click="create.setStatus('publish')">
             <svg viewBox="0 0 100 100" class="icon-big icon-publish">
               <use xlink:href="#icon-publish"></use>
             </svg>
@@ -42,12 +42,6 @@
     </div>
 
     <div class="create-canvas">
-      <!-- <a href="#" class="create-canvas-close icon-link" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
-        <svg viewBox="0 0 100 100" class="icon-small icon-stop">
-          <use xlink:href="#icon-stop"></use>
-        </svg>
-      </a> -->
-
       <div
         class="create-canvas-drop"
         status="create.status"

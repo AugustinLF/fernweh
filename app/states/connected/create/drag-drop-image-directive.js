@@ -13,7 +13,18 @@
           status: '=',
           isImageLoaded: '=isimageloaded'
         },
-        controller: function() {},
+        controller: function() {
+          /* jshint validthis: true */
+          var vm = this;
+
+          vm.removeImage = removeImage;
+
+          function removeImage() {
+            vm.isImageLoaded = false;
+            vm.status = 'upload';
+          }
+
+        },
         controllerAs: 'dragDropCtrl',
         bindToController: true,
         link: function(scope, element, attrs) {
