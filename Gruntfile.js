@@ -4,12 +4,19 @@
 
 module.exports = function( grunt ) {
   var jsPath = ['app/*.js', 'app/js/*.js', 'app/assets/**/*.js', 'app/states/**/*js'];
-  
+
   // Project configuration.
   grunt.initConfig({
     // This line makes your node configurations available for use
     pkg: grunt.file.readJSON('package.json'),
-
+    concurrent: {
+      dev: {
+        tasks: ['dev', 'http-server'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
+    },
     'http-server': {
         // the server root directory
         root: 'app/index.html',
@@ -20,7 +27,7 @@ module.exports = function( grunt ) {
         cache: 1,
         showDir : true,
         autoIndex: true,
-        defaultExt: "html",
+        defaultExt: 'html',
 
         // run in parallel with other tasks
         runInBackground: false
@@ -29,25 +36,7 @@ module.exports = function( grunt ) {
     jshint: {
       // The paths tell JSHint which files to validate
       src: jsPath,
-      options: {  // For information on the options, check http://jshint.com/docs/options/
-        // Enforcing JSHint's options
-        curly: true,
-        eqeqeq: true,
-        forin: true,
-        immed: true,
-        indent: 2,
-        latedef: 'nofunc',
-        newcap: false,  // temp because of Caman
-        noarg: true,
-        noempty: true,
-        nonew: true,
-        quotmark: 'single',
-        undef: true,
-        unused: 'vars',
-        devel: true,
-        browser: true,
-        predef: ['angular', 'Headroom']
-      }
+      jshintrc: true
     },
 
     sass: {
@@ -77,6 +66,9 @@ module.exports = function( grunt ) {
       dist: {
         src: jsPath,
         dest: 'app/dist/aggregated.js'
+      },
+      options: {
+        sourceMap: true
       }
     },
 
@@ -113,7 +105,8 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('default', 'http-server' );
+  grunt.registerTask('default', 'concurrent' );
   grunt.registerTask('dev', ['jshint', 'concat', 'sass', 'watch'] );
 };

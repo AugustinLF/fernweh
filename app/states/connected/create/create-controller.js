@@ -11,8 +11,8 @@
   var injectParams = ['CreateBindingService', 'ParseUserServices', 'ParseTripService', '$scope'];
   createController.$inject = injectParams;
 
-  //to refactor rethink redo 
-  function ngSlider($scope){
+  //to refactor rethink redo
+  function ngSlider($scope) {
     $scope.value = '35';
     $scope.options = {
       from: 1,
@@ -29,7 +29,9 @@
     vm.info = {};
     vm.crop = {};
     vm.isCanvas = false;
-    vm.data = createBinding.data; // Used to bind data between the directive and the controller
+    // vm.data = createBinding.data; // Used to bind data between the directive and the controller
+    vm.data = {};
+    vm.status = 'upload';
     vm.resetInterface = resetInterface;
     vm.setStatus = setStatus;
     vm.isSetStatus = isSetStatus;
@@ -37,45 +39,47 @@
     vm.browseImages = browseImages;
     vm.crop = crop;
     vm.applyFilter = applyFilter;
-    vm.slideFilter = slideFilter; 
+    vm.slideFilter = slideFilter;
     vm.publish = publish;
     vm.goToPreviousStatus = goToPreviousStatus;
     vm.goToNextStatus = goToNextStatus;
+    vm.isUploaded = false;
 
-    // Called when a picture is uploaded 
-    createBinding.uploadImage = function(fileSrc) {
-      this.data.isUploaded = true;
-      this.data.image = fileSrc;
-      var img = new Image();
-      img.onload = function () {
-        $scope.$apply(function() {
-          this.data.width = img.width;
-          this.data.height = img.height;
-        }.bind(this));
-      }.bind(this);
-      img.src = this.data.image;
-      this.setStatus('crop');
-    };
+    // Called when a picture is uploaded
+    // createBinding.uploadImage = function(fileSrc) {
+    //   this.data.isUploaded = true;
+    //   this.data.image = fileSrc;
+    //   var img = new Image();
+    //   img.onload = function () {
+    //     console.log(img);
+    //     $scope.$apply(function() {
+    //       this.data.width = img.width;
+    //       this.data.height = img.height;
+    //     }.bind(this));
+    //   }.bind(this);
+    //   img.src = this.data.image;
+    //   this.setStatus('crop');
+    // };
 
     // Used to delete all the work. Goes back to the upload state and delete all the infos
     function resetInterface() {
-      vm.data.status = 'upload';
+      vm.status = 'upload';
       vm.info = {};
       vm.crop = {};
       vm.isCanvas = false;
-      vm.data.isUploaded = false;
-      createBinding.data.resetImage();
+      vm.isUploaded = false;
+      // createBinding.data.resetImage();
     }
 
     // The status defines where we are in the create section (upload, crop, filter, info or publish)
     function setStatus(status) {
-      if(vm.data.isUploaded === true) { // We can change the status only if a picture has been uploaded
-        vm.data.status = status;
+      if(vm.isUploaded === true) { // We can change the status only if a picture has been uploaded
+        vm.status = status;
       }
 
       if(status === 'crop') {
         vm.isCanvas = true;
-        Caman('#createCanvasUploadCanvas', vm.data.image, function() {
+        window.Caman('#createCanvasUploadCanvas', vm.data.image, function() {
           this.brightness(0).render();
         });
       }
@@ -84,7 +88,7 @@
     createBinding.setStatus = vm.setStatus.bind(this);
 
     function isSetStatus(statusName) {
-      return vm.data.status === statusName;
+      return vm.status === statusName;
     }
 
   function browseImages() {
@@ -92,17 +96,17 @@
   }
 
     function setIconActive(icon) {
-      return (vm.data.status === icon) ? 'icon-active' : '';
+      return (vm.status === icon) ? 'icon-active' : '';
     }
 
     function crop() {
-      Caman('#createCanvasUploadCanvas', vm.data.image, function() {
+      window.Caman('#createCanvasUploadCanvas', vm.data.image, function() {
         this.crop(vm.crop.width, vm.crop.height, vm.crop.x, vm.crop.y).render();
       });
     }
 
     function applyFilter(filterName) {
-      Caman('#createCanvasUploadCanvas', vm.data.image, function() {
+      window.Caman('#createCanvasUploadCanvas', vm.data.image, function() {
         this.revert();
         switch(filterName) {
             case 'Vintage':
@@ -209,6 +213,7 @@
 
   function createRtr($stateProvider) {
     $stateProvider.state('connected.create', {
+      url: '/create',
       templateUrl: 'states/connected/create/create.html',
       controller: 'createController as create'
     });

@@ -38,27 +38,23 @@
           </a>
         </li>
       </ul>
-        <div class="create-status-arrow" ng-class="create.data.status"><span>&nbsp;</span></div>
+        <div class="create-status-arrow" ng-class="create.status"><span>&nbsp;</span></div>
     </div>
-    
+
     <div class="create-canvas">
-      <a href="#" class="create-canvas-close icon-link" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
+      <!-- <a href="#" class="create-canvas-close icon-link" ng-click="create.resetInterface()" ng-show="create.data.isUploaded" href="#" title="Reload">
         <svg viewBox="0 0 100 100" class="icon-small icon-stop">
           <use xlink:href="#icon-stop"></use>
         </svg>
-      </a>
+      </a> -->
 
-      <div class="create-canvas-drop" createtrip>
-        <span class="create-canvas-text text-headline" ng-show="!create.data.isUploaded">
-          <h3>DRAG PHOTO HERE</h3>
-          <a href="#" class="create-canvas-browse icon-link" ng-click="create.browseImages()" ng-show="create.isSetStatus('upload')" href="#" title="Browse..">
-            <svg viewBox="0 0 100 100" class="icon-medium icon-browse">
-              <use xlink:href="#icon-browse"></use>
-            </svg>
-          </a>
-        </span>
-        <img id="createCanvasUploadImg" class="create-canvas-img" ng-class="{'placeholder': !create.data.isUploaded}" ng-hide="create.isCanvas" ng-src="{{create.data.image}}" placeholder="img/icons/create_placeholder.png" />
-        <canvas id="createCanvasUploadCanvas" class="create-canvas-canvas" ng-show="create.isCanvas"></canvas>
+      <div
+        class="create-canvas-drop"
+        status="create.status"
+        imgsrc="create.imgSrc"
+        isimageloaded="create.isUploaded"
+        drag-drop-image-directive
+        >
       </div>
     </div>
 
@@ -81,7 +77,7 @@
 
     <div class="create-crop form-bot-space" ng-show="create.isSetStatus('crop')">
       <form class="form-create-crop form-center">
-        
+
         <div class="form-row form-top-space">
           <span class="form-icon">
             <svg viewBox="0 0 100 100" class="icon-medium icon-compass">
@@ -105,7 +101,7 @@
         <div class="form-row">
           <label for="crop-height" class="text-caption">inputHeight max: {{create.data.height}}</label>
         </div>
-        
+
         <div class="form-row">
           <span class="form-icon">
             <svg viewBox="0 0 100 100" class="icon-medium icon-compass">
@@ -129,7 +125,7 @@
         <div class="form-row">
           <label for="crop-y" class="text-caption">inputY</label>
         </div>
-        
+
         <div class="form-row">
           <button class="text-button" ng-click="create.crop()">Crop</button>
         </div>
@@ -143,11 +139,11 @@
           <button class="create-filter-button" ng-click="create.applyFilter('Vintage')">Vintage</button>
           <button class="create-filter-button" ng-click="create.applyFilter('Sin City')">Sin City</button>
         </div>
-        
+
         <div class="form-row form-filter-slider" ng-controller="ngSlider as filterslider">
           <input ng-model="value" type="text" id="filter-slider" slider options="options" />
         </div>
-        
+
         <div class="form-row form-bot-space">
           <label for="filters" class="text-caption">&nbsp;</label>
         </div>
@@ -171,7 +167,7 @@
         <div class="form-row">
           <label for="country" class="text-caption">&nbsp;</label>
         </div>
-        
+
         <div class="form-row">
           <span class="form-icon">
             <svg viewBox="0 0 100 100" class="icon-medium icon-calendar">
@@ -183,7 +179,7 @@
         <div class="form-row">
           <label for="month" class="text-caption">&nbsp;</label>
         </div>
-        
+
         <div class="form-row">
           <span class="form-icon">
             <svg viewBox="0 0 100 100" class="icon-medium icon-label">
@@ -207,8 +203,7 @@
           <label for="hashtags" class="text-caption">{{create.info.country}} {{create.info.month}} {{create.info.year}} {{create.info.hashtags}}</label>
         </div>
       </form>
-    </div>  
-    
+    </div>
+
   </div>
 </div>
-
