@@ -85,7 +85,7 @@
 }
 
 /* individuals */
-.icon-rocket {
+.icon-balloon {
   width: $distance-d;
   height: $distance-d;
   fill: $blue;
@@ -93,12 +93,20 @@
   transform: rotateZ(0);
 }
 
-.icon-rocket:hover {
+.icon-balloon:hover {
   fill: $blue-3;
   transform: rotateZ(45deg);
 }
 
-.icon-rocket:active {
+.icon-balloon:active {
   fill: $blue-5;
   transform: rotateZ(90deg);
+}
+
+symbol#icon-balloon g:first-child * {
+  fill: $blue;
+}
+
+symbol#icon-balloon g:last-child * {
+  fill: $dark-grey;
 }
